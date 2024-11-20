@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import GridPattern from "@/components/ui/grid-pattern";
 import { ModeToggle } from "@/components/mode-toggle";
 import { BackpackIcon } from "@radix-ui/react-icons";
 import { Badge } from "@/components/ui/badge";
@@ -221,6 +222,7 @@ import {
   GlobeIcon,
   InputIcon
 } from "@radix-ui/react-icons";
+import { cn } from "@/lib/utils";
 
 export default function HomePage() {
   const [error, setError] = useState<string>("");
@@ -299,31 +301,27 @@ export default function HomePage() {
             <Badge variant={"default"} className="">
               Dev Full Stack
             </Badge>
-
-            <Card className="mt-4 p-2 rounded-lg shadow-lg bg-transparent ">
-              <CardContent>
-                <h1 className="text-1xl text-black dark:text-white font-medium">
-                  Sou <span className="underline">Guilherme</span>,
-                  desenvolvedor full stack com experiência tanto em
-                  <span className="underline"> backend</span> quanto{" "}
-                  <span className="underline">frontend</span>. Meu objetivo é
-                  criar soluções inovadoras que impactem positivamente a vida
-                  das pessoas, ao mesmo tempo em que trabalho no protótipo e
-                  desenvolvimento dos meus próprios
-                  <span className="underline"> SaaS</span>.
-                </h1>
-              </CardContent>
-            </Card>
           </section>
+          <div className=" mx-auto max-w-[980px] flex-col gap-2 py-8 md:py-12 md:pb-8 lg:py-4 lg:pb-6 relative flex size-full items-center justify-center overflow-hidden rounded-lg border bg-background p-4 md:shadow-xl">
+            <p className="z-10 flex whitespace-pre-wrap text-2xl font-medium tracking-tighter text-black dark:text-white">
+              Me chamo Guilherme, desenvolvedor full stack com experiência tanto
+              em backend quanto frontend. Meu objetivo é criar soluções
+              inovadoras que impactem positivamente a vida das pessoas, ao mesmo
+              tempo em que trabalho no protótipo e desenvolvimento dos meus
+              próprios SaaS 👋
+            </p>
+            <GridPattern
+              width={10} // Diminuído para 10 para um grid mais compacto
+              height={10} // Diminuído para 10 para um grid mais compacto
+              x={-1}
+              y={-1}
+              className={cn(
+                "[mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)]"
+              )}
+            />
+          </div>
 
           <section className="mx-auto max-w-[980px] flex-col gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-6 relative">
-            <Badge
-              variant={"outline"}
-              className="mb-6 text-xl font-bold leading-tight tracking-tighter md:text-3xl lg:text-4xl lg:leading-[1.1]"
-            >
-              Experências
-            </Badge>
-
             <BentoGrid className="lg:grid-rows-3">
               {features.map((feature) => (
                 <BentoCard key={feature.name} {...feature} />
