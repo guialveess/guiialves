@@ -66,10 +66,11 @@ export function HackathonCard({
 
         {certificateFile && (
           <Dialog>
-            <Button variant="outline" className="mt-2 text-sm w-auto">
-              Ver Certificado
-            </Button>
-            <DialogTrigger asChild></DialogTrigger>
+            <DialogTrigger asChild>
+              <Button variant="outline" className="mt-2 text-sm w-auto">
+                Ver Certificado
+              </Button>
+            </DialogTrigger>
             <DialogContent>
               <DialogHeader>
                 <DialogTitle>Certificado</DialogTitle>
@@ -80,7 +81,6 @@ export function HackathonCard({
                   className="w-full h-full border-0"
                   title="Certificado"
                   loading="lazy"
-                  style={{ display: "block" }} // Garante que o iframe seja exibido corretamente
                 />
               </div>
             </DialogContent>

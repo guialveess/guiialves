@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   ),
   title: "guiialves",
   description:
-    "Plataforma simples e intuitiva para exibição de eventos de Pokémon GO, fornecendo uma maneira rápida e eficiente de encontrar os eventos mais recentes e atualizações em tempo real.",
+    "Me chamo Guilherme, desenvolvedor full stack com experiência em backend e frontend. Meu objetivo é criar soluções inovadoras que impactem positivamente a vida das pessoas, enquanto trabalho no protótipo e desenvolvimento dos meus próprios SaaS 👋",
   alternates: {
     canonical: "/"
   },
@@ -23,14 +23,14 @@ export const metadata: Metadata = {
     url: "/",
     title: "guiialves",
     description:
-      "Plataforma simples e intuitiva para exibição de eventos de Pokémon GO, fornecendo uma maneira rápida e eficiente de encontrar os eventos mais recentes e atualizações em tempo real.",
+      "Me chamo Guilherme, desenvolvedor full stack com experiência em backend e frontend. Meu objetivo é criar soluções inovadoras que impactem positivamente a vida das pessoas, enquanto trabalho no protótipo e desenvolvimento dos meus próprios SaaS 👋",
     type: "website"
   },
   twitter: {
     card: "summary_large_image",
     title: "guiialves",
     description:
-      "Plataforma simples e intuitiva para exibição de eventos de Pokémon GO, fornecendo uma maneira rápida e eficiente de encontrar os eventos mais recentes e atualizações em tempo real."
+      "Me chamo Guilherme, desenvolvedor full stack com experiência em backend e frontend. Meu objetivo é criar soluções inovadoras que impactem positivamente a vida das pessoas, enquanto trabalho no protótipo e desenvolvimento dos meus próprios SaaS 👋"
   }
 };
 
