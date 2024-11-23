@@ -302,8 +302,11 @@ export default function HomePage() {
                 <AvatarFallback>GA</AvatarFallback>
               </Avatar>
             </div>
-            <Badge variant={"default"} className="">
+            <Badge variant={"default"} className="mt-2">
               Dev Full Stack
+              <Badge className="dark:bg-emerald-900 ml-2 text-white bg-emerald-800  border-none">
+                Recife - PE 📍
+              </Badge>
             </Badge>
           </section>
 
