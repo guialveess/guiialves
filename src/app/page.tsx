@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import GridPattern from "@/components/ui/grid-pattern";
@@ -7,6 +8,7 @@ import { ModeToggle } from "@/components/mode-toggle";
 import { BackpackIcon } from "@radix-ui/react-icons";
 import { Badge } from "@/components/ui/badge";
 import { Dock, DockIcon } from "@/components/ui/dock";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { HackathonCard } from "@/components/hackathon-card";
 import {
   Card,
@@ -220,7 +222,7 @@ export default function HomePage() {
   const [error, setError] = useState<string>("");
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen scroll-smooth">
       <header className="z-[50] sticky top-0 w-full bg-background/95 border-b backdrop-blur-sm dark:bg-black/[0.6] border-border/40">
         <div className="container h-14 flex items-center">
           <Link
@@ -286,14 +288,25 @@ export default function HomePage() {
             </Dock>
           </div>
           <section className="mx-auto max-w-[980px] flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-6">
-            <h1 className="text-4xl font-bold leading-tight tracking-tighter md:text-6xl lg:text-7xl lg:leading-[1.1]">
-              guiialves
-            </h1>
-
+            <div className="flex items-center gap-4">
+              <h1 className="text-4xl font-bold leading-tight tracking-tighter md:text-6xl lg:text-7xl lg:leading-[1.1]">
+                guiialves
+              </h1>
+              <Avatar className="relative flex items-center justify-center h-14 w-14 rounded-full overflow-hidden">
+                <AvatarImage
+                  src="/avatar.jpg"
+                  alt="Avatar"
+                  hoverEffect={true} // Ativando o efeito de hover
+                  size={64} // Ajusta o tamanho do avatar
+                />
+                <AvatarFallback>GA</AvatarFallback>
+              </Avatar>
+            </div>
             <Badge variant={"default"} className="">
               Dev Full Stack
             </Badge>
           </section>
+
           <div className=" mx-auto max-w-[980px] flex-col gap-2 py-8 md:py-12 md:pb-8 lg:py-4 lg:pb-6 relative flex size-full items-center justify-center overflow-hidden rounded-lg border bg-background p-4 md:shadow-xl">
             <p className="z-10 flex whitespace-pre-wrap text-2xl font-medium tracking-tighter text-black dark:text-white">
               Me chamo Guilherme, desenvolvedor full stack com experiência tanto
@@ -345,7 +358,20 @@ export default function HomePage() {
                 <div className="mb-4">
                   <HackathonCard
                     title="Nasa Space Apps Hackathon"
-                    description="Foi uma experiência incrível participar de um hackathon tão renomado globalmente, com mais de 60 equipes competindo. Ficar em 7º lugar foi uma conquista memorável!"
+                    description={
+                      <>
+                        <blockquote className="border-l-4 pl-4 italic text-md font-semibold text-muted-foreground">
+                          "Foi uma experiência incrível participar de um
+                          hackathon tão renomado globalmente, com mais de 60
+                          equipes competindo."
+                        </blockquote>
+                        <p className="mt-2">
+                          Ficar em{" "}
+                          <span className="font-black"> 7º lugar </span>
+                          foi uma conquista memorável!
+                        </p>
+                      </>
+                    }
                     location="Recife - PE"
                     dates="04/10 - 06/10"
                     image="nasa-spaceapps"

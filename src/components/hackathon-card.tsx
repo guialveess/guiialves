@@ -12,7 +12,7 @@ import Link from "next/link";
 
 interface Props {
   title: string;
-  description: string;
+  description: React.ReactNode;
   dates: string;
   location: string;
   image?: string;
@@ -53,7 +53,7 @@ export function HackathonCard({
         {location && (
           <Badge
             variant="default"
-            className="text-sm inline-block max-w-fit px-2 py-1"
+            className="text-sm inline-block max-w-fit px-2 py-1 mb-3"
           >
             {location}
           </Badge>
@@ -67,7 +67,7 @@ export function HackathonCard({
         {certificateFile && (
           <Dialog>
             <DialogTrigger asChild>
-              <Button variant="outline" className="mt-2 text-sm w-auto">
+              <Button variant="outline" className="mt-2 text-sm">
                 Ver Certificado
               </Button>
             </DialogTrigger>
