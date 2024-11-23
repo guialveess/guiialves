@@ -361,9 +361,9 @@ export default function HomePage() {
                     description={
                       <>
                         <blockquote className="border-l-4 pl-4 italic text-md font-semibold text-muted-foreground">
-                          "Foi uma experiência incrível participar de um
+                          &quot;Foi uma experiência incrível participar de um
                           hackathon tão renomado globalmente, com mais de 60
-                          equipes competindo."
+                          equipes competindo.&quot;
                         </blockquote>
                         <p className="mt-2">
                           Ficar em{" "}
