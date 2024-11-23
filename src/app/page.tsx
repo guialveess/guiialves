@@ -234,7 +234,7 @@ export default function HomePage() {
               className="rounded-full w-8 h-8 bg-background"
               asChild
             >
-              <Link href="https://guialves.vercel.app/">
+              <Link href="https://www.linkedin.com/in/guiialves/">
                 <BackpackIcon className="h-[1.2rem] w-[1.2rem]" />
               </Link>
             </Button>

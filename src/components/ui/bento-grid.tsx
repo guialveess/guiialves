@@ -23,6 +23,8 @@ const BentoGrid = ({
   );
 };
 
+import {} from "@radix-ui/react-icons";
+
 const BentoCard = ({
   name,
   className,
@@ -62,7 +64,10 @@ const BentoCard = ({
         className={cn(
           "pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100"
         )}
-      ></div>
+      >
+        <Icon></Icon>
+        <Badge className="ml-4 bg-red-600 text-white">{name}</Badge>
+      </div>
 
       <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.03] group-hover:dark:bg-neutral-800/10" />
     </div>
@@ -82,22 +87,22 @@ const OtherSkillsSection = () => {
       {/* Container para Badges lado a lado */}
       <div className="flex flex-wrap justify-center gap-2">
         {/* Exemplos de Badges */}
-        <Badge variant="default" className="text-lg font-medium">
+        <Badge variant="default" className="text-md  font-bold">
           JavaScript
         </Badge>
-        <Badge variant="default" className="text-lg font-medium">
+        <Badge variant="default" className="text-md  font-bold">
           PostgreSQL
         </Badge>
-        <Badge variant="default" className="text-lg font-medium">
+        <Badge variant="default" className="text-md  font-bold">
           Illustrator
         </Badge>
-        <Badge variant="default" className="text-lg font-medium">
+        <Badge variant="default" className="text-md  font-bold">
           Photoshop
         </Badge>
-        <Badge variant="default" className="text-lg font-medium">
+        <Badge variant="default" className="text-md  font-bold">
           GraphQL
         </Badge>
-        <Badge variant="default" className="text-lg font-medium">
+        <Badge variant="default" className="text-md  font-bold">
           Git/Github
         </Badge>
         {/* Adicione mais badges conforme necessário */}
