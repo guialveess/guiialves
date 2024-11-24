@@ -63,31 +63,18 @@ const Icons = {
     </svg>
   ),
 
-  googleDrive: (props: IconProps) => (
-    <svg viewBox="0 0 87.3 78" xmlns="http://www.w3.org/2000/svg" {...props}>
+  linkedin: (props: IconProps) => (
+    <svg
+      width="800px"
+      height="800px"
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      {...props}
+    >
       <path
-        d="m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8h-27.5c0 1.55.4 3.1 1.2 4.5z"
-        fill="#0066da"
-      />
-      <path
-        d="m43.65 25-13.75-23.8c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44a9.06 9.06 0 0 0 -1.2 4.5h27.5z"
-        fill="#00ac47"
-      />
-      <path
-        d="m73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5h-27.502l5.852 11.5z"
-        fill="#ea4335"
-      />
-      <path
-        d="m43.65 25 13.75-23.8c-1.35-.8-2.9-1.2-4.5-1.2h-18.5c-1.6 0-3.15.45-4.5 1.2z"
-        fill="#00832d"
-      />
-      <path
-        d="m59.8 53h-32.3l-13.75 23.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z"
-        fill="#2684fc"
-      />
-      <path
-        d="m73.4 26.5-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3l-13.75 23.8 16.15 28h27.45c0-1.55-.4-3.1-1.2-4.5z"
-        fill="#ffba00"
+        fill="#0A66C2"
+        d="M12.225 12.225h-1.778V9.44c0-.664-.012-1.519-.925-1.519-.926 0-1.068.724-1.068 1.47v2.834H6.676V6.498h1.707v.783h.024c.348-.594.996-.95 1.684-.925 1.802 0 2.135 1.185 2.135 2.728l-.001 3.14zM4.67 5.715a1.037 1.037 0 01-1.032-1.031c0-.566.466-1.032 1.032-1.032.566 0 1.031.466 1.032 1.032 0 .566-.466 1.032-1.032 1.032zm.889 6.51h-1.78V6.498h1.78v5.727zM13.11 2H2.885A.88.88 0 002 2.866v10.268a.88.88 0 00.885.866h10.226a.882.882 0 00.889-.866V2.865a.88.88 0 00-.889-.864z"
       />
     </svg>
   ),
@@ -260,11 +247,11 @@ export default function HomePage() {
               </DockIcon>
               <DockIcon>
                 <a
-                  href="https://drive.google.com"
+                  href="https://www.linkedin.com/in/guiialves/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Icons.googleDrive className="size-6" />
+                  <Icons.linkedin className="size-6" />
                 </a>
               </DockIcon>
               <DockIcon>
@@ -346,7 +333,7 @@ export default function HomePage() {
               Hackathons
             </Badge>
           </div>
-          <section id="hackathons">
+          <section id="hackathons" className="">
             <div className="space-y-12 w-full py-12">
               <div className="flex flex-col items-center justify-center space-y-4 text-center">
                 <div className="space-y-2">
