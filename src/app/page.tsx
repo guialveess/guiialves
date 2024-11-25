@@ -11,6 +11,7 @@ import { Cover } from "@/components/ui/cover";
 import { Dock, DockIcon } from "@/components/ui/dock";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { HackathonCard } from "@/components/hackathon-card";
+import { TracingBeam } from "@/components/ui/tracing-beam";
 import {
   Card,
   CardContent,
@@ -210,7 +211,9 @@ export default function HomePage() {
   const [error, setError] = useState<string>("");
 
   return (
-    <div className="flex flex-col min-h-screen scroll-smooth">
+
+    <div className="flex flex-col min-h-screen scroll-smooth ">
+      
       <header className="z-[50] sticky top-0 w-full bg-background/95 border-b backdrop-blur-sm dark:bg-black/[0.6] border-border/40">
         <div className="container h-14 flex items-center">
           <Link
@@ -231,9 +234,11 @@ export default function HomePage() {
             <ModeToggle />
           </nav>
         </div>
+        
       </header>
-
-      <main className="min-h-[calc(100vh-57px-97px)] flex-1">
+      
+     <TracingBeam className="">
+      <main className="min-h-[calc(100vh-57px-97px)] flex-1 mx-auto">
         <div className="container relative  pb-10">
           <div className="fixed bottom-0 left-0 right-0 mb-6 py-6 z-10">
             <Dock direction="bottom">
@@ -384,7 +389,6 @@ export default function HomePage() {
             </div>
           </section>
         </div>
-      </main>
 
       <footer className="py-2 md:py-0 mb-14 border-t border-border/40">
         <div className="container flex items-center justify-center gap-4 md:h-24 md:flex-row">
@@ -401,6 +405,13 @@ export default function HomePage() {
           </p>
         </div>
       </footer>
+      </main>
+      </TracingBeam> 
     </div>
+   
+   
+   
   );
+  
+  
 }
