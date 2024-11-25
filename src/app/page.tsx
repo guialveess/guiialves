@@ -7,6 +7,7 @@ import GridPattern from "@/components/ui/grid-pattern";
 import { ModeToggle } from "@/components/mode-toggle";
 import { BackpackIcon } from "@radix-ui/react-icons";
 import { Badge } from "@/components/ui/badge";
+import { Cover } from "@/components/ui/cover";
 import { Dock, DockIcon } from "@/components/ui/dock";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { HackathonCard } from "@/components/hackathon-card";
@@ -276,9 +277,9 @@ export default function HomePage() {
           </div>
           <section className="mx-auto max-w-[980px] flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-6">
             <div className="flex items-center gap-4">
-              <h1 className="text-4xl font-bold leading-tight tracking-tighter md:text-6xl lg:text-7xl lg:leading-[1.1]">
+              <Cover className="text-4xl font-bold leading-tight tracking-tighter md:text-6xl lg:text-7xl lg:leading-[1.1]">
                 guiialves
-              </h1>
+              </Cover>
               <Avatar className="relative flex items-center justify-center h-14 w-14 rounded-full overflow-hidden">
                 <AvatarImage
                   src="/avatar.jpg"
