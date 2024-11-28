@@ -208,10 +208,6 @@ import {
 } from "@radix-ui/react-icons";
 import { cn } from "@/lib/utils";
 
-export function FlipWordsDemo() {
-  const words = ["realidade ", "fato", "realidade", "veracidade"];
-}
-
 
 export default function HomePage() {
   const [error, setError] = useState<string>("");
