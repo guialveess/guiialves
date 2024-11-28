@@ -56,7 +56,7 @@ const AvatarImage = React.forwardRef<
               ref={ref}
               className="w-full h-full object-cover transition-all duration-300 ease-in-out"
               {...props}
-              style={{ filter: "grayscale(100%)" }} // Filtro preto e branco por padrão
+              style={{ filter: "none" }} // Filtro preto e branco por padrão
             />
           </motion.div>
         </>

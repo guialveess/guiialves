@@ -8,6 +8,7 @@ import { ModeToggle } from "@/components/mode-toggle";
 import { BackpackIcon } from "@radix-ui/react-icons";
 import { Badge } from "@/components/ui/badge";
 import { Cover } from "@/components/ui/cover";
+import { FlipWords } from "@/components/ui/flip-words";
 import { Dock, DockIcon } from "@/components/ui/dock";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { HackathonCard } from "@/components/hackathon-card";
@@ -207,6 +208,11 @@ import {
 } from "@radix-ui/react-icons";
 import { cn } from "@/lib/utils";
 
+export function FlipWordsDemo() {
+  const words = ["realidade ", "fato", "realidade", "veracidade"];
+}
+
+
 export default function HomePage() {
   const [error, setError] = useState<string>("");
 
@@ -297,7 +303,7 @@ export default function HomePage() {
             </div>
             <Badge variant={"default"} className="mt-2">
               Dev Full Stack
-              <Badge className="dark:bg-emerald-900 ml-2 text-white bg-emerald-800  border-none">
+              <Badge className="dark:bg-blue-900 ml-2 text-white bg-blue-950  border-none">
                 Recife - PE 📍
               </Badge>
             </Badge>
@@ -344,7 +350,7 @@ export default function HomePage() {
               <div className="flex flex-col items-center justify-center space-y-4 text-center">
                 <div className="space-y-2">
                   <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                    Adoro transformar ideias em realidade 😊
+                    Adoro transformar ideias em <FlipWords words={["realidade", "fato", "veracidade", "realidade"]}/>😊
                   </h2>
                 </div>
               </div>
