@@ -284,7 +284,7 @@ export default function HomePage() {
           </div>
           <section className="mx-auto max-w-[980px] flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-6">
             <div className="flex items-center gap-4">
-              <Cover className="text-4xl font-bold leading-tight tracking-tighter md:text-6xl lg:text-7xl lg:leading-[1.1]">
+              <Cover className="text-4xl font-bold md:text-6xl lg:text-7xl lg:leading-[1.1]">
                 guiialves
               </Cover>
               <Avatar className="relative flex items-center justify-center h-14 w-14 rounded-full overflow-hidden">
@@ -314,8 +314,8 @@ export default function HomePage() {
               próprios SaaS 👋
             </p>
             <GridPattern
-              width={10} // Diminuído para 10 para um grid mais compacto
-              height={10} // Diminuído para 10 para um grid mais compacto
+              width={10} 
+              height={10} 
               x={-1}
               y={-1}
               className={cn(
