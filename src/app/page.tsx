@@ -8,11 +8,20 @@ import { ModeToggle } from "@/components/mode-toggle";
 import { BackpackIcon } from "@radix-ui/react-icons";
 import { Badge } from "@/components/ui/badge";
 import { Cover } from "@/components/ui/cover";
+import Card2 from "@/components/myCard";
 import { FlipWords } from "@/components/ui/flip-words";
 import { Dock, DockIcon } from "@/components/ui/dock";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { HackathonCard } from "@/components/hackathon-card";
 import { TracingBeam } from "@/components/ui/tracing-beam";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbSeparator,
+  BreadcrumbList,
+  BreadcrumbLink,
+  BreadcrumbPage
+} from "@/components/ui/breadcrumb";
 import {
   Card,
   CardContent,
@@ -208,14 +217,11 @@ import {
 } from "@radix-ui/react-icons";
 import { cn } from "@/lib/utils";
 
-
 export default function HomePage() {
   const [error, setError] = useState<string>("");
 
   return (
-
     <div className="flex flex-col min-h-screen scroll-smooth ">
-      
       <header className="z-[50] sticky top-0 w-full bg-background/95 border-b backdrop-blur-sm dark:bg-black/[0.6] border-border/40">
         <div className="container h-14 flex items-center">
           <Link
@@ -229,155 +235,160 @@ export default function HomePage() {
               className="rounded-full w-8 h-8 bg-background"
               asChild
             >
-              <Link href="https://www.linkedin.com/in/guiialves/">
+              <Link href="/projects">
                 <BackpackIcon className="h-[1.2rem] w-[1.2rem]" />
               </Link>
             </Button>
             <ModeToggle />
           </nav>
         </div>
-        
       </header>
-      
-     <TracingBeam className="">
-      <main className="min-h-[calc(100vh-57px-97px)] flex-1 mx-auto">
-        <div className="container relative  pb-10">
-          <div className="fixed bottom-0 left-0 right-0 mb-6 py-6 z-10">
-            <Dock direction="bottom">
-              <DockIcon>
-                <a
-                  href="https://github.com/guialveess"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Icons.gitHub className="size-6" />
-                </a>
-              </DockIcon>
-              <DockIcon>
-                <a
-                  href="https://www.linkedin.com/in/guiialves/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Icons.linkedin className="size-6" />
-                </a>
-              </DockIcon>
-              <DockIcon>
-                <a
-                  href="mailto:97guilherme.alves@gmail.com?subject=Olá%20Guilherme&body=Gostaria%20de%20entrar%20em%20contato!"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Icons.gmail className="size-6" />
-                </a>
-              </DockIcon>
-              <DockIcon>
-                <a
-                  href="https://wa.me/5581981770644"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Icons.whatsapp className="size-6" />
-                </a>
-              </DockIcon>
-            </Dock>
-          </div>
-          <section className="mx-auto max-w-[980px] flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-6">
-            <div className="flex items-center gap-4">
-              <Cover className="text-4xl font-bold md:text-6xl lg:text-7xl lg:leading-[1.1]">
-                guiialves
-              </Cover>
-              <Avatar className="relative flex items-center justify-center h-14 w-14 rounded-full overflow-hidden">
-                <AvatarImage
-                  src="/avatar.jpg"
-                  alt="Avatar"
-                  hoverEffect={true} // Ativando o efeito de hover
-                  size={64} // Ajusta o tamanho do avatar
-                />
-                <AvatarFallback>GA</AvatarFallback>
-              </Avatar>
+
+      <TracingBeam className="">
+        <main className="min-h-[calc(100vh-57px-97px)] flex-1 mx-auto">
+          <Breadcrumb className="mt-6 ml-8">
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbPage>Home</BreadcrumbPage>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/projects">Projetos</BreadcrumbLink>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+          <div className="container relative  pb-10">
+            <div className="fixed bottom-0 left-0 right-0 mb-6 py-6 z-10">
+              <Dock direction="bottom">
+                <DockIcon>
+                  <a
+                    href="https://github.com/guialveess"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Icons.gitHub className="size-6" />
+                  </a>
+                </DockIcon>
+                <DockIcon>
+                  <a
+                    href="https://www.linkedin.com/in/guiialves/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Icons.linkedin className="size-6" />
+                  </a>
+                </DockIcon>
+                <DockIcon>
+                  <a
+                    href="mailto:97guilherme.alves@gmail.com?subject=Olá%20Guilherme&body=Gostaria%20de%20entrar%20em%20contato!"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Icons.gmail className="size-6" />
+                  </a>
+                </DockIcon>
+              </Dock>
             </div>
-            <Badge variant={"default"} className="mt-2">
-              Dev Full Stack
-              <Badge className="dark:bg-blue-900 ml-2 text-white bg-blue-950  border-none">
-                Recife - PE 📍
-              </Badge>
-            </Badge>
-          </section>
-
-          <div className=" mx-auto max-w-[980px] flex-col gap-2 py-8 md:py-12 md:pb-8 lg:py-4 lg:pb-6 relative flex size-full items-center justify-center overflow-hidden rounded-lg border bg-background p-4 md:shadow-xl">
-            <p className="z-10 flex whitespace-pre-wrap text-2xl font-medium tracking-tighter text-black dark:text-white">
-              Me chamo Guilherme, desenvolvedor full stack com experiência tanto
-              em backend quanto frontend. Meu objetivo é criar soluções
-              inovadoras que impactem positivamente a vida das pessoas, ao mesmo
-              tempo em que trabalho no protótipo e desenvolvimento dos meus
-              próprios SaaS 👋
-            </p>
-            <GridPattern
-              width={10} 
-              height={10} 
-              x={-1}
-              y={-1}
-              className={cn(
-                "[mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)]"
-              )}
-            />
-          </div>
-
-          <section className="mx-auto max-w-[980px] flex-col gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-6 relative">
-            <BentoGrid className="lg:grid-rows-3">
-              {features.map((feature) => (
-                <BentoCard key={feature.name} {...feature} />
-              ))}
-            </BentoGrid>
-            <OtherSkillsSection />
-          </section>
-
-          <div className="mx-auto max-w-[980px] flex flex-col items-center justify-center gap-2 py-8 md:py-4 md:pb-8 lg:py-6 lg:pb-6">
-            <Badge
-              variant={"default"}
-              className="mb-6 text-xl font-bold leading-tight tracking-tighter md:text-3xl lg:text-4xl lg:leading-[1.1] text-center"
-            >
-              Hackathons
-            </Badge>
-          </div>
-          <section id="hackathons" className="">
-            <div className="space-y-12 w-full py-12">
-              <div className="flex flex-col items-center justify-center space-y-4 text-center">
-                <div className="space-y-2">
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                    Adoro transformar ideias em <FlipWords words={["realidade", "fato", "veracidade", "realidade"]}/>😊
-                  </h2>
-                </div>
-              </div>
-
-              {/* Hackathon cards */}
-              <ul className="mb-4 ml-4 divide-y divide-dashed border-l">
-                <div className="mb-4">
-                  <HackathonCard
-                    title="Nasa Space Apps Hackathon"
-                    description={
-                      <>
-                        <blockquote className="border-l-4 pl-4 italic text-md font-semibold text-muted-foreground">
-                          &quot;Foi uma experiência incrível participar de um
-                          hackathon tão renomado globalmente, com mais de 60
-                          equipes competindo.&quot;
-                        </blockquote>
-                        <p className="mt-2">
-                          Ficar em{" "}
-                          <span className="font-black"> 7º lugar </span>
-                          foi uma conquista memorável!
-                        </p>
-                      </>
-                    }
-                    location="Recife - PE"
-                    dates="04/10 - 06/10"
-                    image="nasa-spaceapps"
-                    certificateFile="/certificates/nasa.pdf" // Caminho para o arquivo na pasta pública
+            <section className="mx-auto max-w-[980px] flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-6">
+              <div className="flex items-center gap-4">
+                <Cover className="text-4xl font-bold md:text-6xl lg:text-7xl lg:leading-[1.1]">
+                  guiialves
+                </Cover>
+                <Avatar className="relative flex items-center justify-center h-14 w-14 rounded-full overflow-hidden">
+                  <AvatarImage
+                    src="/avatar.jpg"
+                    alt="Avatar"
+                    hoverEffect={true} // Ativando o efeito de hover
+                    size={64} // Ajusta o tamanho do avatar
                   />
+                  <AvatarFallback>GA</AvatarFallback>
+                </Avatar>
+              </div>
+              <Badge variant={"default"} className="mt-2">
+                Dev Full Stack
+                <Badge className="dark:bg-blue-900 ml-2 text-white bg-blue-950  border-none">
+                  Recife - PE 📍
+                </Badge>
+              </Badge>
+            </section>
+
+            <div className=" mx-auto max-w-[980px] flex-col gap-2 py-8 md:py-12 md:pb-8 lg:py-4 lg:pb-6 relative flex size-full items-center justify-center overflow-hidden rounded-lg border bg-background p-4 md:shadow-xl">
+              <p className="z-10 flex whitespace-pre-wrap text-2xl font-medium tracking-tighter text-black dark:text-white">
+                Me chamo Guilherme, desenvolvedor full stack com experiência
+                tanto em backend quanto frontend. Meu objetivo é criar soluções
+                inovadoras que impactem positivamente a vida das pessoas, ao
+                mesmo tempo em que trabalho no protótipo e desenvolvimento dos
+                meus próprios SaaS 👋
+              </p>
+              <GridPattern
+                width={10}
+                height={10}
+                x={-1}
+                y={-1}
+                className={cn(
+                  "[mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)]"
+                )}
+              />
+            </div>
+
+            <section className="mx-auto max-w-[980px] flex-col gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-6 relative">
+              <BentoGrid className="lg:grid-rows-3">
+                {features.map((feature) => (
+                  <BentoCard key={feature.name} {...feature} />
+                ))}
+              </BentoGrid>
+              <OtherSkillsSection />
+            </section>
+
+            <div className="mx-auto max-w-[980px] flex flex-col items-center justify-center gap-2 py-8 md:py-4 md:pb-8 lg:py-6 lg:pb-6">
+              <Badge
+                variant={"default"}
+                className="mb-6 text-xl font-bold leading-tight tracking-tighter md:text-3xl lg:text-4xl lg:leading-[1.1] text-center"
+              >
+                Hackathons
+              </Badge>
+            </div>
+            <section id="hackathons" className="">
+              <div className="space-y-12 w-full py-12">
+                <div className="flex flex-col items-center justify-center space-y-4 text-center">
+                  <div className="space-y-2">
+                    <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                      Adoro transformar ideias em{" "}
+                      <FlipWords
+                        words={["realidade", "fato", "veracidade", "realidade"]}
+                      />
+                      😊
+                    </h2>
+                  </div>
                 </div>
 
-                {/* <div className="mb-4">
+                {/* Hackathon cards */}
+                <ul className="mb-4 ml-4 divide-y divide-dashed border-l">
+                  <div className="mb-4">
+                    <HackathonCard
+                      title="Nasa Space Apps Hackathon"
+                      description={
+                        <>
+                          <blockquote className="border-l-4 pl-4 italic text-md font-semibold text-muted-foreground">
+                            &quot;Foi uma experiência incrível participar de um
+                            hackathon tão renomado globalmente, com mais de 60
+                            equipes competindo.&quot;
+                          </blockquote>
+                          <p className="mt-2">
+                            Ficar em{" "}
+                            <span className="font-black"> 7º lugar </span>
+                            foi uma conquista memorável!
+                          </p>
+                        </>
+                      }
+                      location="Recife - PE"
+                      dates="04/10 - 06/10"
+                      image="nasa-spaceapps"
+                      certificateFile="/certificates/nasa.pdf" // Caminho para o arquivo na pasta pública
+                    />
+                  </div>
+
+                  {/* <div className="mb-4">
                   <HackathonCard
                     title="Hackathon Example 2"
                     description="Description of Hackathon 2"
@@ -386,34 +397,29 @@ export default function HomePage() {
                     image="nasa-spaceapps-"
                   />
                 </div> */}
-                {/* Adicione mais itens de hackathons conforme necessário */}
-              </ul>
-            </div>
-          </section>
-        </div>
+                  {/* Adicione mais itens de hackathons conforme necessário */}
+                </ul>
+              </div>
+            </section>
+          </div>
 
-      <footer className="py-2 md:py-0 mb-14 border-t border-border/40">
-        <div className="container flex items-center justify-center gap-4 md:h-24 md:flex-row">
-          <p className="text-balance  mb-14  text-center text-sm leading-loose text-muted-foreground">
-            feito por{" "}
-            <Link
-              href="https://api.whatsapp.com/send/?phone=5581981770644&text=Olá%2C+estou+interessado+em+desenvolver+um+site+ou+sistema.+Gostaria+de+discutir+as+opções+disponíveis+com+você.%F0%9F%91%8B&type=phone_number&app_absent=0"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-medium underline underline-offset-4"
-            >
-              @guiialves
-            </Link>
-          </p>
-        </div>
-      </footer>
-      </main>
-      </TracingBeam> 
+          <footer className="py-2 md:py-0 mb-14 border-t border-border/40">
+            <div className="container flex items-center justify-center gap-4 md:h-24 md:flex-row">
+              <p className="text-balance  mb-14  text-center text-sm leading-loose text-muted-foreground">
+                feito por{" "}
+                <Link
+                  href="https://api.whatsapp.com/send/?phone=5581981770644&text=Olá%2C+estou+interessado+em+desenvolver+um+site+ou+sistema.+Gostaria+de+discutir+as+opções+disponíveis+com+você.%F0%9F%91%8B&type=phone_number&app_absent=0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium underline underline-offset-4"
+                >
+                  @guiialves
+                </Link>
+              </p>
+            </div>
+          </footer>
+        </main>
+      </TracingBeam>
     </div>
-   
-   
-   
   );
-  
-  
 }

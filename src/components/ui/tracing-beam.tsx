@@ -13,13 +13,13 @@ export const TracingBeam = ({
   children,
   className,
 }: {
-  children: React.ReactNode;
+  children?: React.ReactNode; // Agora opcional
   className?: string;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start start", "end start",],
+    offset: ["start start", "end start"],
   });
 
   const contentRef = useRef<HTMLDivElement>(null);
