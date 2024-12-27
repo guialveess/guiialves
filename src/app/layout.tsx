@@ -1,49 +1,36 @@
-import type { Metadata } from "next";
+"use client";
+
 import { GeistSans } from "geist/font/sans";
-
 import "./globals.css";
-
 import { ThemeProvider } from "@/components/providers/theme-provider";
-
-export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.APP_URL
-      ? `${process.env.APP_URL}`
-      : process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : `http://localhost:${process.env.PORT || 3000}`
-  ),
-  title: "guiialves",
-  description:
-    "Me chamo Guilherme, desenvolvedor full stack com experiência em backend e frontend. Meu objetivo é criar soluções inovadoras que impactem positivamente a vida das pessoas, enquanto trabalho no protótipo e desenvolvimento dos meus próprios SaaS 👋",
-  alternates: {
-    canonical: "/"
-  },
-  openGraph: {
-    url: "/",
-    title: "guiialves",
-    description:
-      "Me chamo Guilherme, desenvolvedor full stack com experiência em backend e frontend. Meu objetivo é criar soluções inovadoras que impactem positivamente a vida das pessoas, enquanto trabalho no protótipo e desenvolvimento dos meus próprios SaaS 👋",
-    type: "website"
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "guiialves",
-    description:
-      "Me chamo Guilherme, desenvolvedor full stack com experiência em backend e frontend. Meu objetivo é criar soluções inovadoras que impactem positivamente a vida das pessoas, enquanto trabalho no protótipo e desenvolvimento dos meus próprios SaaS 👋"
-  }
-};
+import { AnimatePresence, motion } from "framer-motion";
+import { usePathname } from "next/navigation";
+import Inner from "@/components/Inner"; // Importando o Inner
 
 export default function RootLayout({
-  children
-}: Readonly<{
+  children,
+}: {
   children: React.ReactNode;
-}>) {
+}) {
+  const pathname = usePathname();
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={GeistSans.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
+          <Inner>
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={pathname}
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 50 }}
+                transition={{ duration: 1 }}
+              >
+                {children}
+              </motion.div>
+            </AnimatePresence>
+          </Inner>
         </ThemeProvider>
       </body>
     </html>

@@ -5,8 +5,16 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import GridPattern from "@/components/ui/grid-pattern";
 import { ModeToggle } from "@/components/mode-toggle";
+import Image from "next/image";
 import { BackpackIcon } from "@radix-ui/react-icons";
 import { Badge } from "@/components/ui/badge";
+import {
+  Activity,
+  ArrowUpRight,
+  Plus,
+  Target,
+  CheckCircle2
+} from "lucide-react";
 import { Cover } from "@/components/ui/cover";
 import Card2 from "@/components/myCard";
 import { FlipWords } from "@/components/ui/flip-words";
@@ -291,44 +299,62 @@ export default function HomePage() {
             </div>
             <section className="mx-auto max-w-[980px] flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-6">
               <div className="flex items-center gap-4">
-                <Cover className="text-4xl font-bold md:text-6xl lg:text-7xl lg:leading-[1.1]">
+                <h1 className="text-4xl font-bold md:text-6xl lg:text-7xl lg:leading-[1.1]">
                   guiialves
-                </Cover>
-                <Avatar className="relative flex items-center justify-center h-14 w-14 rounded-full overflow-hidden">
-                  <AvatarImage
-                    src="/avatar.jpg"
-                    alt="Avatar"
-                    hoverEffect={true} // Ativando o efeito de hover
-                    size={64} // Ajusta o tamanho do avatar
-                  />
-                  <AvatarFallback>GA</AvatarFallback>
-                </Avatar>
+                </h1>
+                <div className="relative flex items-center justify-center h-14 w-14 rounded-full overflow-visible group">
+                  {/* Wrapper Circular para a Imagem */}
+                  <div className="h-full w-full rounded-full overflow-hidden">
+                    <Image
+                      src="/avatar.jpg"
+                      alt="Avatar"
+                      width={64}
+                      height={64}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+
+                  {/* Nome com Animação de Hover */}
+                  <span
+                    className="absolute -bottom-4 left-1/2 -translate-x-1/2
+      px-2 py-1 rounded-md text-[11px]
+      bg-zinc-900 dark:bg-zinc-100
+      text-white dark:text-zinc-900
+      opacity-0 group-hover:opacity-100
+      transition-opacity duration-200 z-10 font-bold"
+                  >
+                    Guilherme Alves ✨
+                  </span>
+                </div>
               </div>
               <Badge variant={"default"} className="mt-2">
                 Dev Full Stack
-                <Badge className="dark:bg-blue-900 ml-2 text-white bg-blue-950  border-none">
+                {/* <Badge className="dark:bg-blue-900 ml-2 text-white bg-blue-950  border-none">
                   Recife - PE 📍
-                </Badge>
+                </Badge> */}
               </Badge>
             </section>
 
             <div className=" mx-auto max-w-[980px] flex-col gap-2 py-8 md:py-12 md:pb-8 lg:py-4 lg:pb-6 relative flex size-full items-center justify-center overflow-hidden rounded-lg border bg-background p-4 md:shadow-xl">
-              <p className="z-10 flex whitespace-pre-wrap text-2xl font-medium tracking-tighter text-black dark:text-white">
-                Me chamo Guilherme, desenvolvedor full stack com experiência
-                tanto em backend quanto frontend. Meu objetivo é criar soluções
-                inovadoras que impactem positivamente a vida das pessoas, ao
-                mesmo tempo em que trabalho no protótipo e desenvolvimento dos
-                meus próprios SaaS 👋
-              </p>
-              <GridPattern
-                width={10}
-                height={10}
-                x={-1}
-                y={-1}
-                className={cn(
-                  "[mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)]"
-                )}
-              />
+              <div className="space-y-4">
+                {/* Cabeçalho do Card */}
+                <div className="flex items-center justify-between">
+                  <h4 className="flex items-center gap-2 text-sm font-medium text-zinc-700 dark:text-zinc-300">
+                    <Target className="w-4 h-4" />
+                    Sobre mim
+                  </h4>
+                </div>
+
+                {/* Texto de Apresentação */}
+                <p className="text-base font-medium tracking-tighter text-zinc-700 dark:text-zinc-300">
+                  Desenvolvedor full stack, meu objetivo é criar soluções
+                  inovadoras que impactem positivamente a vida das pessoas, ao
+                  mesmo tempo em que trabalho no protótipo e desenvolvimento dos
+                  meus próprios SaaS 👋
+                </p>
+
+                {/* Lista de Objetivos Diários */}
+              </div>
             </div>
 
             <section className="mx-auto max-w-[980px] flex-col gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-6 relative">

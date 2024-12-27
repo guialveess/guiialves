@@ -105,6 +105,9 @@ const OtherSkillsSection = () => {
         <Badge variant="default" className="text-md  font-bold">
           Git/Github
         </Badge>
+        <Badge variant="default" className="text-md  font-bold">
+         Prisma
+        </Badge>
         {/* Adicione mais badges conforme necessário */}
       </div>
     </section>
