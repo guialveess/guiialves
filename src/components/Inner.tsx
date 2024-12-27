@@ -16,7 +16,7 @@ export default function Inner({ children }: { children: React.ReactNode }) {
     <div className="inner relative overflow-hidden">
       {/* Background Slide Animation */}
       <motion.div
-        className=""
+        className="slide inset-0 z-10"
         {...anim(slide)}
       />
       {/* Page Content Animation */}
