@@ -224,6 +224,7 @@ import {
   InputIcon
 } from "@radix-ui/react-icons";
 import { cn } from "@/lib/utils";
+import { BadgeAnimatedBorder } from "@/components/custom/BadgeAnimatedBorder";
 
 export default function HomePage() {
   const [error, setError] = useState<string>("");
@@ -327,12 +328,14 @@ export default function HomePage() {
                   </span>
                 </div>
               </div>
-              <Badge variant={"default"} className="mt-2">
+              <div className=" flex items-center gap-2">
+              <BadgeAnimatedBorder variant={"default"} className="mt-4">
                 Dev Full Stack
                 {/* <Badge className="dark:bg-blue-900 ml-2 text-white bg-blue-950  border-none">
                   Recife - PE 📍
                 </Badge> */}
-              </Badge>
+              </BadgeAnimatedBorder>
+              </div>
             </section>
 
             <div className=" mx-auto max-w-[980px] flex-col gap-2 py-8 md:py-12 md:pb-8 lg:py-4 lg:pb-6 relative flex size-full items-center justify-center overflow-hidden rounded-lg border bg-background p-4 md:shadow-xl">

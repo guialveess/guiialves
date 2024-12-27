@@ -3,6 +3,7 @@ import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge"; // Certifique-se de que a Badge esteja importada corretamente
+import { BadgeAnimatedBorder } from "@/components/custom/BadgeAnimatedBorder";
 
 const BentoGrid = ({
   children,
@@ -51,7 +52,8 @@ const BentoCard = ({
         className
       )}
     >
-      <div>{background}</div>
+      <div className="relative">{background}</div>
+      
       <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover:-translate-y-10">
         <Icon className="h-12 w-12 origin-left transform-gpu text-neutral-700 transition-all duration-300 ease-in-out group-hover:scale-75" />
         <h3 className="text-xl font-semibold text-neutral-700 dark:text-neutral-300">
@@ -65,8 +67,19 @@ const BentoCard = ({
           "pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100"
         )}
       >
-        <Icon></Icon>
-        <Badge className="ml-4 bg-red-600 text-white">{name}</Badge>
+        <Icon />
+        <div
+          className={cn(
+            "group relative grid overflow-hidden rounded-full px-3 py-1 shadow-[0_1000px_0_0_hsl(0_0%_20%)_inset] transition-colors duration-200",
+            "ml-4 bg-red-600 text-white"
+          )}
+        >
+          <span>
+            <span className="spark mask-gradient absolute inset-0 h-[100%] w-[100%] animate-flip overflow-hidden rounded-full [mask:linear-gradient(white,_transparent_50%)] before:absolute before:aspect-square before:w-[200%] before:rotate-[-90deg] before:animate-rotate before:bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)] before:content-[''] before:[inset:0_auto_auto_50%] before:[translate:-50%_-15%]" />
+          </span>
+          <span className="backdrop absolute inset-px rounded-full bg-neutral-950 transition-colors duration-200" />
+          <span className="z-10 text-xs font-medium">{name}</span>
+        </div>
       </div>
 
       <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.03] group-hover:dark:bg-neutral-800/10" />
@@ -74,9 +87,11 @@ const BentoCard = ({
   );
 };
 
+
 const OtherSkillsSection = () => {
   return (
     <section className="mx-auto max-w-[980px] flex flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-6 relative">
+      
       <Badge
         variant={"secondary"}
         className="mb-6 text-xl font-bold leading-tight justify-center tracking-tighter md:text-3xl lg:text-4xl lg:leading-[1.1]"

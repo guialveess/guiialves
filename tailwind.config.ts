@@ -75,6 +75,16 @@ const config = {
             height: "0"
           }
         },
+        flip: {
+          to: {
+            transform: "rotate(360deg)",
+          },
+        },
+        rotate: {
+          to: {
+            transform: "rotate(90deg)",
+          },
+        },
         "collapsible-down": {
           from: {
             height: "0"
@@ -110,7 +120,12 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
         "collapsible-down": "collapsible-down 0.2s ease-out",
         "collapsible-up": "collapsible-up 0.2s ease-out",
-        meteor: "meteor 5s linear infinite"
+        meteor: "meteor 5s linear infinite",
+        spotlight: "spotlight 2s ease .75s 1 forwards",
+        flip: "flip 6s infinite steps(2, end)",
+        rotate: "rotate 3s linear infinite both",
+        "caret-blink": "caret-blink 1.25s ease-out infinite",
+        rainbow: "rainbow var(--speed, 2s) infinite linear",
       }
     }
   },
