@@ -3,7 +3,14 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { BackpackIcon } from "@radix-ui/react-icons";
 import { ModeToggle } from "@/components/mode-toggle";
-import { Breadcrumb, BreadcrumbItem, BreadcrumbSeparator, BreadcrumbList, BreadcrumbPage, BreadcrumbLink } from "@/components/ui/breadcrumb";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbSeparator,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbLink
+} from "@/components/ui/breadcrumb";
 import { TracingBeam } from "@/components/ui/tracing-beam";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import Image from "next/image";
@@ -12,7 +19,7 @@ import {
   Drawer,
   DrawerTrigger,
   DrawerContent,
-  DrawerClose,
+  DrawerClose
 } from "@/components/ui/drawer";
 
 export default function ProjectsPage() {
@@ -29,8 +36,8 @@ export default function ProjectsPage() {
         "Tailwind CSS",
         "ShadCN UI",
         "Prisma",
-        "PostgreSQL",
-      ],
+        "PostgreSQL"
+      ]
     },
     {
       name: "PokeTime",
@@ -43,9 +50,9 @@ export default function ProjectsPage() {
         "TypeScript",
         "API do LeekDuck",
         "NodeJS",
-        "Axios",
-      ],
-    },
+        "Axios"
+      ]
+    }
   ];
 
   return (
@@ -89,79 +96,49 @@ export default function ProjectsPage() {
 
           {/* Projects Section */}
           <div className="container relative pb-10">
-            <section
-              id="projects"
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-60"
-            >
+            <section id="projects" className="lg:gap-60">
               {projects.map((project, index) => (
-                <CardContainer className="inter-var" key={index}>
-                  <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-lg dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[20rem] h-auto rounded-lg p-4 border">
-                    {/* Project Name */}
-                    <CardItem
-                      translateZ="30"
-                      className="text-lg font-semibold text-neutral-600 dark:text-white"
-                    >
-                      <Badge variant="default">
-                        <h1 className="text-sm">{project.name}</h1>
-                      </Badge>
-                    </CardItem>
-                    {/* Project Description */}
-                    <CardItem
-                      as="p"
-                      translateZ="40"
-                      className="text-neutral-500 text-xs max-w-xs mt-2 dark:text-neutral-300"
-                    >
+                <Link
+                  href={project.link}
+                  target="_blank"
+                  key={index}
+                  className="group relative flex flex-col h-[37vh] max-h-[370px] min-h-[350px] xl:h-[43vh] xl:min-h-[320px] sm:h-[35vh] sm:min-h-0 sm:max-h-[270px] xs:h-[38vh] overflow-hidden rounded-2xl border-[1px] border-b-0 bg-gradient-to-b from-gradient-gray to-gradient-black hover:via-gradient-gray duration-500 mb-8"
+                >
+                  {/* Imagem do Projeto */}
+                  <div className="absolute inset-0 z-10 overflow-hidden rounded-2xl sm:rounded-xl">
+                    <Image
+                      quality={100}
+                      priority
+                      className="object-cover object-top duration-500 opacity-70 group-hover:opacity-90 group-hover:scale-[101%]"
+                      src={project.image}
+                      width={1000}
+                      height={700}
+                      alt={`Thumbnail for ${project.name}`}
+                    />
+                  </div>
+
+                  {/* Badge no Topo */}
+                  <Badge
+                    variant="outline"
+                    className="absolute z-30 top-2 right-2 bg-neutral-900 text-white px-2 py-1 text-xs rounded-lg"
+                  >
+                    {project.name}
+                  </Badge>
+
+                  {/* Conteúdo do Card */}
+                  <div className="z-20 flex flex-col pl-4 sm:p-4 mt-auto text-neutral-300 pb-5">
+                    {/* Fundo com Opacidade Baixa */}
+                    <div className="absolute inset-0 bg-black/60 rounded-b-2xl pointer-events-none"></div>
+
+                    {/* Conteúdo do Card */}
+                    <h3 className="relative text-lg font-semibold xl:text-xl text-white drop-shadow-md">
+                      {project.name}
+                    </h3>
+                    <p className="relative leading-normal max-w-[33ch] text-sm text-neutral-300 drop-shadow-md">
                       {project.description}
-                    </CardItem>
-                    {/* Project Image */}
-                    <CardItem translateZ="70" className="w-full mt-4">
-                      <Image
-                        src={project.image}
-                        height={800}
-                        width={800}
-                        className="h-48 w-full object-cover rounded-lg group-hover/card:shadow-md"
-                        alt={`Thumbnail for ${project.name}`}
-                      />
-                    </CardItem>
-                    {/* Actions */}
-                    <div className="flex justify-between items-center mt-12">
-                      <CardItem
-                        translateZ={15}
-                        as={Link}
-                        href={project.link}
-                        target="_blank"
-                        className="px-3 py-1 rounded-lg text-xs font-normal dark:text-white"
-                      >
-                        Ir para o Projeto
-                      </CardItem>
-                      <Drawer>
-                        <DrawerTrigger>
-                          <div className="px-3 py-1 rounded-lg bg-black dark:bg-white dark:text-black text-white text-xs font-bold cursor-pointer">
-                            Ver detalhes
-                          </div>
-                        </DrawerTrigger>
-                        <DrawerContent>
-                          <DrawerClose />
-                          <div className="p-6 flex flex-col items-center text-center">
-                            <h2 className="text-lg font-semibold text-neutral-900 dark:text-white mb-4">
-                              Tecnologias Utilizadas
-                            </h2>
-                            <ul className="list-none space-y-2 text-sm text-neutral-600 dark:text-neutral-300">
-                              {project.technologies.map((tech, idx) => (
-                                <li
-                                  key={idx}
-                                  className="bg-gray-200 dark:bg-neutral-800 py-2 px-4 rounded-md"
-                                >
-                                  {tech}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        </DrawerContent>
-                      </Drawer>
-                    </div>
-                  </CardBody>
-                </CardContainer>
+                    </p>
+                  </div>
+                </Link>
               ))}
             </section>
           </div>
