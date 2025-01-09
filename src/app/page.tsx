@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import GridPattern from "@/components/ui/grid-pattern";
@@ -22,6 +22,7 @@ import { Dock, DockIcon } from "@/components/ui/dock";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { HackathonCard } from "@/components/hackathon-card";
 import { TracingBeam } from "@/components/ui/tracing-beam";
+import { DynamicIslandDemo } from "@/components/custom/DymanicAction";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -182,7 +183,8 @@ const features = [
     href: "/",
     cta: "Saiba mais",
     background: <img className="absolute -right-20 -top-20 opacity-60" />,
-    className: "lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-2"
+    className:
+      "lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-2 text-white"
   },
   {
     Icon: ApiIcon,
@@ -228,6 +230,7 @@ import { BadgeAnimatedBorder } from "@/components/custom/BadgeAnimatedBorder";
 
 export default function HomePage() {
   const [error, setError] = useState<string>("");
+  const [showDynamic, setShowDynamic] = useState(false);
 
   return (
     <div className="flex flex-col min-h-screen scroll-smooth ">
@@ -316,29 +319,19 @@ export default function HomePage() {
                   </div>
 
                   {/* Nome com Animação de Hover */}
-                  <span
-                    className="absolute -bottom-4 left-1/2 -translate-x-1/2
-      px-2 py-1 rounded-md text-[11px]
-      bg-zinc-900 dark:bg-zinc-100
-      text-white dark:text-zinc-900
-      opacity-0 group-hover:opacity-100
-      transition-opacity duration-200 z-10 font-bold"
-                  >
-                    Guilherme Alves ✨
-                  </span>
                 </div>
               </div>
               <div className=" flex items-center gap-2">
-              <BadgeAnimatedBorder variant={"default"} className="mt-4">
-                Dev Full Stack
-                {/* <Badge className="dark:bg-blue-900 ml-2 text-white bg-blue-950  border-none">
+                <BadgeAnimatedBorder variant={"default"} className="mt-1">
+                  Dev Full Stack
+                  {/* <Badge className="dark:bg-blue-900 ml-2 text-white bg-blue-950  border-none">
                   Recife - PE 📍
                 </Badge> */}
-              </BadgeAnimatedBorder>
+                </BadgeAnimatedBorder>
               </div>
             </section>
 
-            <div className=" mx-auto max-w-[980px] flex-col gap-2 py-8 md:py-12 md:pb-8 lg:py-4 lg:pb-6 relative flex size-full items-center justify-center overflow-hidden rounded-lg border bg-background p-4 md:shadow-xl">
+            <div className="mx-auto max-w-[980px] flex-col gap-2 py-8 md:py-12 md:pb-8 lg:py-4 lg:pb-6 relative flex size-full items-center justify-center overflow-visible rounded-lg border bg-background p-4 md:shadow-xl">
               <div className="space-y-4">
                 {/* Cabeçalho do Card */}
                 <div className="flex items-center justify-between">
@@ -350,10 +343,35 @@ export default function HomePage() {
 
                 {/* Texto de Apresentação */}
                 <p className="text-base font-medium tracking-tighter text-zinc-700 dark:text-zinc-300">
-                  Desenvolvedor full stack, meu objetivo é criar soluções
-                  inovadoras que impactem positivamente a vida das pessoas, ao
-                  mesmo tempo em que trabalho no protótipo e desenvolvimento dos
-                  meus próprios SaaS 👋
+                  Desenvolvedor{" "}
+                  <span
+                    className="underline cursor-pointer relative custom-underline"
+                    onMouseEnter={() => setShowDynamic(true)} // Desktop: Aparece ao passar o mouse
+                    onMouseLeave={() => setShowDynamic(false)} // Desktop: Desaparece ao tirar o mouse
+                    onClick={() => setShowDynamic((prev) => !prev)} // Mobile: Alterna ao clicar
+                  >
+                    full stack
+                    <AnimatePresence>
+                      {showDynamic && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 20 }}
+                          transition={{
+                            duration: 0.8, // Aumenta o tempo da animação
+                            ease: [0.25, 0.8, 0.5, 1] // Easing suave para entrada/saída
+                          }}
+                          className="absolute top-full left-0 mt-4 z-50 w-64 p-4 rounded-md"
+                        >
+                          <DynamicIslandDemo />
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </span>
+                  , meu objetivo é criar soluções inovadoras que impactem
+                  positivamente a vida das pessoas, ao mesmo tempo em que
+                  trabalho no protótipo e desenvolvimento dos meus próprios SaaS
+                  👋
                 </p>
 
                 {/* Lista de Objetivos Diários */}

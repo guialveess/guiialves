@@ -1,6 +1,9 @@
 "use client";
 
 import { GeistSans } from "geist/font/sans";
+import { bricolageGrotesque } from '@/app/font';
+import { GeistMono } from 'geist/font/mono';
+
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { AnimatePresence, motion } from "framer-motion";
@@ -16,7 +19,7 @@ export default function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={GeistSans.className}>
+      <body className={bricolageGrotesque.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Inner>
             <AnimatePresence mode="wait" initial={false}>
