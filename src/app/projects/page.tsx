@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import {Link} from "next-view-transitions";
 import { Button } from "@/components/ui/button";
 import { BackpackIcon } from "@radix-ui/react-icons";
 import { ModeToggle } from "@/components/mode-toggle";
@@ -84,7 +84,7 @@ export default function ProjectsPage() {
             <Breadcrumb className="mt-6 mr-7">
               <BreadcrumbList>
                 <BreadcrumbItem>
-                  <BreadcrumbLink href="/">Home</BreadcrumbLink>
+                  <Link href="/">Home</Link>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>

@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import {Link} from "next-view-transitions";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
@@ -238,7 +238,7 @@ export default function HomePage() {
         <div className="container h-14 flex items-center">
           <Link
             href="/"
-            className="flex justify-start items-center hover:opacity-85 transition-opacity duration-300"
+            className="flex justify-start items-center hover:opacity-85"
           ></Link>
           <nav className="ml-auto flex items-center gap-2">
             <Button
@@ -265,7 +265,7 @@ export default function HomePage() {
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbLink href="/projects">Projetos</BreadcrumbLink>
+                <Link href="/projects">Projetos</Link>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
