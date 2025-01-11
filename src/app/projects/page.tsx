@@ -2,6 +2,7 @@
 import {Link} from "next-view-transitions";
 import { Button } from "@/components/ui/button";
 import { BackpackIcon } from "@radix-ui/react-icons";
+import { useLenis } from "@/hooks/useLenis";
 import { ModeToggle } from "@/components/mode-toggle";
 import {
   Breadcrumb,
@@ -23,6 +24,7 @@ import {
 } from "@/components/ui/drawer";
 
 export default function ProjectsPage() {
+  useLenis();
   const projects = [
     {
       name: "Stips",

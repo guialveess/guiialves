@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import GridPattern from "@/components/ui/grid-pattern";
 import { ModeToggle } from "@/components/mode-toggle";
 import Image from "next/image";
+import { useLenis } from "@/hooks/useLenis";
+import { WordRotate } from "@/components/custom/WordRotate";
 import { BackpackIcon } from "@radix-ui/react-icons";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -229,8 +231,38 @@ import { cn } from "@/lib/utils";
 import { BadgeAnimatedBorder } from "@/components/custom/BadgeAnimatedBorder";
 
 export default function HomePage() {
+  useLenis();
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string>("");
   const [showDynamic, setShowDynamic] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false); // Desativa a tela de carregamento após 5 segundos
+    }, 5000);
+
+    return () => clearTimeout(timer); // Limpa o timer ao desmontar
+  }, []);
+
+  if (isLoading) {
+    // Tela de carregamento com WordRotate
+    return (
+      <div className="flex h-screen items-center justify-center bg-gray-10">
+        <WordRotate
+          className="text-3xl font-bold text-black dark:text-white"
+          words={[
+            "Olá", // Português
+            "Hello", // Inglês
+            "Hola", // Espanhol
+            "Bonjour", // Francês
+            "Hallo", // Alemão
+          ]}
+          
+          duration={1000} // Tempo para trocar entre as palavras
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col min-h-screen scroll-smooth ">

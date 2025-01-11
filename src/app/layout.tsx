@@ -1,6 +1,7 @@
 "use client";
 
 import { bricolageGrotesque } from "@/app/font";
+import { useLenis } from "@/hooks/useLenis";
 import { MDXProvider } from "@mdx-js/react";
 import { ViewTransitions } from "next-view-transitions";
 import "./globals.css";
@@ -10,6 +11,7 @@ export default function RootLayout({
   children
 }: {
   children: React.ReactNode;
+  useLenis(): void;
 }) {
   return (
     <html lang="en" suppressHydrationWarning>

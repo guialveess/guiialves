@@ -100,6 +100,11 @@
   font-style: normal;
 }
 
+#lenis-wrapper {
+  height: 100%;
+  overflow: auto; /* Permite que Lenis aplique o smooth scrolling */
+}
+
 
 @keyframes move-dot {
   0%,
