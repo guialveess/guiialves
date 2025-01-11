@@ -267,6 +267,10 @@ export default function HomePage() {
               <BreadcrumbItem>
                 <Link href="/projects">Projetos</Link>
               </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <Link href="/blog">Blog</Link>
+              </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
           <div className="container relative  pb-10">
@@ -303,8 +307,8 @@ export default function HomePage() {
             </div>
             <section className="mx-auto max-w-[980px] flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-6">
               <div className="flex items-center gap-4">
-                <h1 className="text-4xl font-bold md:text-6xl lg:text-7xl lg:leading-[1.1]">
-                  guiialves
+                <h1 className="text-xl font-bold md:text-xl lg:text-3xl lg:leading-[1.1]">
+                  Guilherme Alves
                 </h1>
                 <div className="relative flex items-center justify-center h-14 w-14 rounded-full overflow-visible group">
                   {/* Wrapper Circular para a Imagem */}

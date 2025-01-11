@@ -72,6 +72,7 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: 'Hubot Sans', sans-serif;
   }
 }
 
@@ -81,7 +82,7 @@
 }
 
 .custom-underline::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -2px; /* Ajuste a posição vertical */
   left: 0;
@@ -90,6 +91,13 @@
   background-color: currentColor; /* Usa a cor do texto */
   transform: skewX(-15deg); /* Faz a linha ficar torta */
   transform-origin: left;
+}
+
+@font-face {
+  font-family: 'Hubot Sans';
+  src: url('/fonts/Hubot-Sans.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
 
 

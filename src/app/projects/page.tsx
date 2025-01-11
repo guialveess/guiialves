@@ -90,6 +90,10 @@ export default function ProjectsPage() {
                 <BreadcrumbItem>
                   <BreadcrumbPage>Projetos</BreadcrumbPage>
                 </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <Link href="/blog">Blog</Link>
+                </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
           </div>
@@ -119,7 +123,7 @@ export default function ProjectsPage() {
 
                   {/* Badge no Topo */}
                   <Badge
-                    variant="outline"
+                    variant="secondary"
                     className="absolute z-30 top-2 right-2 bg-neutral-900 text-white px-2 py-1 text-xs rounded-lg"
                   >
                     {project.name}
