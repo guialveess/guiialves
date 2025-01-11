@@ -131,6 +131,9 @@ importers:
       react-markdown:
         specifier: ^9.0.3
         version: 9.0.3(@types/react@18.3.18)(react@18.3.1)
+      rehype-pretty-code:
+        specifier: ^0.14.0
+        version: 0.14.0(shiki@1.26.1)
       rehype-react:
         specifier: ^8.0.0
         version: 8.0.0
