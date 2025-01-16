@@ -14,7 +14,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
       <DotPattern
         className={cn(
           "absolute inset-0 opacity-20 z-[-1] pointer-events-none", // Tornar o fundo sutil e não interativo
-          "[mask-image:radial-gradient(300px_circle_at_center,white,)] bg-gray-200 dark:bg-gray-800"
+          "[mask-image:radial-gradient(300px_circle_at_center,white,)] bg-gray-200 dark:bg-black"
         )}
       />
 

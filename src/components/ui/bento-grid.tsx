@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge"; // Certifique-se de que a Badge esteja importada corretamente
 import { BadgeAnimatedBorder } from "@/components/custom/BadgeAnimatedBorder";
+import { motion } from "framer-motion";
 
 const BentoGrid = ({
   children,
@@ -53,7 +54,7 @@ const BentoCard = ({
       )}
     >
       <div className="relative">{background}</div>
-      
+
       <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover:-translate-y-10">
         <Icon className="h-12 w-12 origin-left transform-gpu text-neutral-700 transition-all duration-300 ease-in-out group-hover:scale-75" />
         <h3 className="text-xl font-semibold text-neutral-700 dark:text-neutral-300">
@@ -87,46 +88,48 @@ const BentoCard = ({
   );
 };
 
-
 const OtherSkillsSection = () => {
+  const skills = [
+    "JavaScript",
+    "PostgreSQL",
+    "Illustrator",
+    "Photoshop",
+    "GraphQL",
+    "Git/Github",
+    "Prisma",
+  ];
+
   return (
     <section className="mx-auto max-w-[980px] flex flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-6 relative">
-      
       <Badge
-        variant={"secondary"}
+        variant="secondary"
         className="mb-6 text-xl font-bold leading-tight justify-center tracking-tighter md:text-3xl lg:text-4xl lg:leading-[1.1]"
       >
         Outras Habilidades
       </Badge>
 
       {/* Container para Badges lado a lado */}
-      <div className="flex flex-wrap justify-center gap-2">
-        {/* Exemplos de Badges */}
-        <Badge variant="default" className="text-md  font-bold">
-          JavaScript
-        </Badge>
-        <Badge variant="default" className="text-md  font-bold">
-          PostgreSQL
-        </Badge>
-        <Badge variant="default" className="text-md  font-bold">
-          Illustrator
-        </Badge>
-        <Badge variant="default" className="text-md  font-bold">
-          Photoshop
-        </Badge>
-        <Badge variant="default" className="text-md  font-bold">
-          GraphQL
-        </Badge>
-        <Badge variant="default" className="text-md  font-bold">
-          Git/Github
-        </Badge>
-        <Badge variant="default" className="text-md  font-bold">
-         Prisma
-        </Badge>
-        {/* Adicione mais badges conforme necessário */}
+      <div className="flex flex-wrap justify-center gap-2 animate-minor-spring duration-1000 transition-all ease-slow">
+        {skills.map((skill, index) => (
+          <motion.div
+            key={skill}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            whileHover={{ scale: 1.05 }}
+            viewport={{ once: false, amount: 1 }} // Anima sempre que entrar na viewport
+            transition={{
+              duration: 1,
+              delay: index * 1, // Atraso incremental
+              ease: "easeOut",
+            }}
+          >
+            <Badge variant="outline" className="text-md font-bold">
+              {skill}
+            </Badge>
+          </motion.div>
+        ))}
       </div>
     </section>
   );
 };
-
 export { BentoCard, BentoGrid, OtherSkillsSection };

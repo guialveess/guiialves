@@ -239,17 +239,16 @@ export default function HomePage() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false); // Desativa a tela de carregamento após 5 segundos
-    }, 5000);
+    }, 7500);
 
     return () => clearTimeout(timer); // Limpa o timer ao desmontar
   }, []);
 
   if (isLoading) {
-    // Tela de carregamento com WordRotate
     return (
-      <div className="flex h-screen items-center justify-center bg-gray-10">
+      <div className="flex h-screen items-center justify-center">
         <WordRotate
-          className="text-3xl font-bold text-black dark:text-white"
+          className="text-3xl font-bold text-black dark:text-white translate-y-full animate-minor-spring duration-1000 transition-all ease-slow"
           words={[
             "Olá", // Português
             "Hello", // Inglês
@@ -257,8 +256,7 @@ export default function HomePage() {
             "Bonjour", // Francês
             "Hallo", // Alemão
           ]}
-          
-          duration={1000} // Tempo para trocar entre as palavras
+          duration={1500} // Troca de palavras a cada 1 segundo
         />
       </div>
     );

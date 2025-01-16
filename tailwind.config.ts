@@ -101,6 +101,7 @@ const config = {
             height: "0"
           }
         },
+        
         meteor: {
           "0%": {
             transform: "rotate(215deg) translateX(0)",
@@ -123,6 +124,8 @@ const config = {
         meteor: "meteor 5s linear infinite",
         spotlight: "spotlight 2s ease .75s 1 forwards",
         flip: "flip 6s infinite steps(2, end)",
+        slow: "cubic-bezier(.405, 0, .025, 1)",
+        "minor-spring": "cubic-bezier(0.18,0.89,0.82,1.04)",
         rotate: "rotate 3s linear infinite both",
         "caret-blink": "caret-blink 1.25s ease-out infinite",
         rainbow: "rainbow var(--speed, 2s) infinite linear",
