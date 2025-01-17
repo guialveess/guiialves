@@ -15,7 +15,7 @@ const Card: React.FC<CardProps> = ({ title, description, children }) => {
   </h3>
   <div className="mb-4 flex items-center">
     <BadgeCustom
-      variant="default"
+      variant="outline"
       className="rounded-full bg-amber-50 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-sm font-bold"
     >
       {description}

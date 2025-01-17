@@ -1,6 +1,7 @@
 import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote/rsc';
 import Link from 'next/link';
 import Card from '@/components/Card';
+import { NextFileTree } from "@/components/NextFileTree"; 
 import ComparisonTable from "@/components/ComparisonTable";
 import { ComponentPropsWithoutRef } from 'react';
 
@@ -45,6 +46,7 @@ export const components = {
   ),
   li: (props: ListItemProps) => <li className="text-gray-900 dark:text-gray-100" {...props} />,
   em: (props: ComponentPropsWithoutRef<'em'>) => <em className="font-medium" {...props} />,
+  hr: ({ ...props }) => <hr className="my-4 md:my-8" {...props} />,
   strong: (props: ComponentPropsWithoutRef<'strong'>) => (
     <strong className="font-bold text-gray-900 dark:text-gray-100" {...props} />
   ),
@@ -75,9 +77,9 @@ export const components = {
     return <code className="bg-transparent before:content-none after:content-none" {...props} />;
   },
   blockquote: (props: BlockquoteProps) => (
-    <blockquote className="ml-[0.075em] border-l-3 border-gray-300 pl-4 text-gray-700" {...props} />
+    <blockquote className="ml-[0.075em] border-l-3 border-gray-300 pl-4 text-gray-700 dark:text-black" {...props} />
   ),
-  Card, ComparisonTable, // Adicionando o Card como componente utilizável no MDX
+  Card, ComparisonTable, NextFileTree// Adicionando o Card como componente utilizável no MDX
 };
 
 export function CustomMDX(props: MDXRemoteProps) {

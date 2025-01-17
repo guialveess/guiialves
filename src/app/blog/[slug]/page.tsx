@@ -13,13 +13,13 @@ export default async function PostPage({ params }: { params: { slug: string } })
       {/* Background DotPattern */}
       <DotPattern
         className={cn(
-          "absolute inset-0 opacity-20 z-[-1] pointer-events-none", // Tornar o fundo sutil e não interativo
+          "absolute inset-0 opacity-10 z-[-1] pointer-events-none", // Tornar o fundo sutil e não interativo
           "[mask-image:radial-gradient(300px_circle_at_center,white,)] bg-gray-200 dark:bg-black"
         )}
       />
 
       {/* Header */}
-      <header className="z-[50] sticky top-0 w-full bg-background/95 border-b backdrop-blur-sm dark:bg-black/[0.6] border-border/40">
+      <header className="z-[50] sticky top-0 w-full bg-background/50 border-b backdrop-blur-sm dark:bg-black/[0.6] border-border/40">
         <div className="container h-14 flex items-center justify-between px-4">
           <Link href="/" className="text-sm text-gray-500 hover:underline">
             Home
