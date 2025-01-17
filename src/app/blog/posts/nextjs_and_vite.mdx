@@ -1,5 +1,5 @@
 ---
-title: "Next.js vs Vite: Qual Escolher?"
+title: "Next.js vs Vite: Qual Escolher? 🚀"
 publishedAt: "2025-01-11"
 summary: "Uma análise comparativa entre Next.js e Vite para desenvolvimento moderno de aplicações web."
 draft: true
@@ -11,18 +11,18 @@ image: "/path/to/nextjs-vs-vite-banner.png"
 Neste artigo, trago uma comparação detalhada entre dois frameworks amplamente conhecidos no desenvolvimento front-end: **Next.js** e **Vite**. Ambos têm características que os tornam populares entre desenvolvedores modernos. Vamos explorar as vantagens e desvantagens de cada um para que você escolha a melhor ferramenta para o seu projeto. 😉
 
 ---
-##
 
 <HeadingWithIcon
   text="O que é o Next.js?"
-  icon={<img src="/nextjs2.svg" alt="Next.js Logo" className="w-10 h-10" />}
+  icon={<img src="/nextjs2.svg" alt="Next.js Logo" className="w-8 h-8" />}
+  hasBackground={true}
 />
 
 <blockquote>
   <strong>Next.js</strong> é um framework baseado em React que oferece renderização do lado do servidor (SSR), geração estática (SSG) e um sistema de rotas integrado.
 </blockquote>
 
-<Card title="" description="Principais razões para escolher o Next.js:">
+<Card title="🔥 Principais razões para escolher o Next.js:" description="">
   - **Renderização híbrida**: Suporte a SSR e SSG na mesma aplicação.
   - **Sistema de rotas integrado**: Roteamento baseado em arquivos, fácil de usar.
   - **Otimização de performance**: Imagens otimizadas, Lazy Loading e outras melhorias nativas.
@@ -31,13 +31,17 @@ Neste artigo, trago uma comparação detalhada entre dois frameworks amplamente 
 
 ---
 
-## O que é o Vite?
+<HeadingWithIcon
+  text="O que é Vite?"
+  icon={<img src="/vite.svg" alt="Vite Logo" className="w-8 h-8 bg-none" />}
+  hasBackground={false}
+/>
 
 <blockquote>
   <strong>Vite</strong> é uma ferramenta de construção extremamente rápida, projetada para modernizar o desenvolvimento front-end, utilizando ES Modules.
 </blockquote>
 
-<Card title="" description="Principais razões para escolher o Vite:">
+<Card title="⚡ Principais razões para escolher o Vite:" description="">
   - **Velocidade impressionante**: Tempo de inicialização muito rápido, ideal para grandes projetos.
   - **Hot Module Replacement (HMR)**: Atualizações em tempo real sem reiniciar o servidor.
   - **Facilidade de uso**: Interface intuitiva e configuração mínima.
@@ -50,7 +54,7 @@ Neste artigo, trago uma comparação detalhada entre dois frameworks amplamente 
 
 Pedro, um desenvolvedor experiente, decidiu criar um **SaaS para gestão de academias**. Ele precisa de uma plataforma robusta, escalável e de alta performance. Além disso, quer incluir um **blog otimizado para SEO** e um **sistema de checkout** para gerenciar pagamentos.
 
-### Por que Pedro escolheu Next.js?
+### Por que Pedro escolheu Next.js? 💡
 
 1. **SEO para atrair clientes ✅**  
    O Next.js permite criar páginas otimizadas para motores de busca usando SSR e SSG. Isso ajuda Pedro a atrair academias interessadas no seu SaaS.
@@ -63,7 +67,7 @@ Pedro, um desenvolvedor experiente, decidiu criar um **SaaS para gestão de acad
 
 ---
 
-## Estrutura do Projeto SaaS com Next.js
+## Estrutura do Projeto SaaS com Next.js 🛠️
 
 Aqui está um exemplo de como Pedro organizou seu projeto Next.js para atender às necessidades do seu SaaS:
 
@@ -81,23 +85,38 @@ Aqui está um exemplo de como Pedro organizou seu projeto Next.js para atender �
 
 João, amigo de Pedro, queria criar uma **SPA (Single Page Application)** para compartilhar receitas. Ele não precisava de SEO nem renderização no lado do servidor, mas priorizava velocidade no desenvolvimento.
 
-### Por que João escolheu Vite?
+### Por que João escolheu Vite? ⚡
 
-1. **Desenvolvimento rápido e ágil**  
+1. **Desenvolvimento rápido e ágil ✅**  
    O Vite inicializa rapidamente, permitindo que João veja alterações em tempo real com o HMR.
 
-2. **Simplicidade no projeto**  
+2. **Simplicidade no projeto ✅**  
    Como João não usa SSR ou SSG, o Vite oferece tudo o que ele precisa para criar uma SPA leve e eficiente.
 
-3. **Flexibilidade**  
+3. **Flexibilidade ✅**  
    O Vite se integra facilmente a bibliotecas modernas, como Zustand, para gerenciamento de estado.
 
 ---
 
-## Principais Diferenças
+## Estrutura do Projeto SPA com Vite 🛠️
+
+Aqui está um exemplo de como João organizou seu projeto Vite para facilitar o desenvolvimento e a manutenção:
+
+<ViteFileTree />
+
+**Explicação da estrutura:**
+- **`src/main.tsx`**: Ponto de entrada principal do projeto.
+- **`src/components`**: Componentes reutilizáveis, como Header, RecipeCard e Footer.
+- **`src/styles`**: Arquivos CSS para estilizar os componentes.
+- **`src/assets`**: Recursos estáticos, como imagens e logotipos.
+- **`src/state`**: Gerenciamento de estado com Zustand ou outra biblioteca.
+
+---
+
+## Principais Diferenças 🤔
 
 <ComparisonTable
-  title="Diferenças entre Next.js e Vite"
+  title="Next.js x Vite"
   data={[
     { feature: "Renderização", next: "SSR e SSG integrados", vite: "CSR com bibliotecas externas" },
     { feature: "Configuração", next: "Altamente configurável", vite: "Configuração mínima" },
@@ -109,11 +128,11 @@ João, amigo de Pedro, queria criar uma **SPA (Single Page Application)** para c
 
 ---
 
-## Conclusão: Qual Escolher?
+## Conclusão: Qual Escolher? 🤔
 
 A escolha entre **Next.js** e **Vite** depende do tipo de projeto que você está construindo:
 
-<Card title="Resumo: Quando escolher cada ferramenta" description="">
+<Card title="Resumo: Quando escolher cada ferramenta 🎯">
   - Escolha **Next.js** para aplicações complexas, com necessidades de **SEO** e **SSR**.
   - Escolha **Vite** para protótipos rápidos ou SPAs simples.
 </Card>

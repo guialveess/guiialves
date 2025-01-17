@@ -1,14 +1,22 @@
-"use client"
+"use client";
+
 import React from "react";
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils"; // Certifique-se de que o utilitário cn está disponível
+import { cn } from "@/lib/utils";
 
 interface HeadingWithIconProps extends React.HTMLAttributes<HTMLHeadingElement> {
   text: string; // Texto do título
   icon: React.ReactNode; // Ícone ou logo para renderizar
+  hasBackground?: boolean; // Define se o fundo será aplicado ou não
 }
 
-export function HeadingWithIcon({ text, icon, className, ...props }: HeadingWithIconProps) {
+export function HeadingWithIcon({
+  text,
+  icon,
+  hasBackground = true,
+  className,
+  ...props
+}: HeadingWithIconProps) {
   return (
     <div className={cn("relative inline-block group", className)}>
       <h3
@@ -18,17 +26,19 @@ export function HeadingWithIcon({ text, icon, className, ...props }: HeadingWith
         {text}
       </h3>
       <motion.div
-        className="absolute -top-7 -right-11 z-0 opacity-50 group-hover:opacity-100 transition-opacity duration-700"
+        className="absolute -top-3 -right-16 z-0 opacity-50 group-hover:opacity-100 transition-opacity duration-1000"
         aria-hidden="true"
-        // Adicionando animação com Framer Motion
-        whileHover={{ rotate: 12 }} // Rotaciona quando o mouse passa
-        initial={{ rotate: 0 }} // Começa sem rotação
-        transition={{ duration: 0.5, ease: "easeInOut" }} // Controla a suavidade da rotação
+        whileHover={{ rotate: 12 }}
+        initial={{ rotate: 0 }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
       >
         <div
-          className="relative p-1 rounded-full border-2 border-transparent group-hover:border-rainbow animate-gradient-border"
+          className={cn(
+            "max-h-fit transform rounded-full p-2 px-6 transition-all duration-500 ease-out hover:-rotate-2 hover:scale-110",
+            { "bg-white dark:bg-gray-800/60": hasBackground } // Condicional para aplicar o fundo
+          )}
         >
-          <div className="w-10 h-10 flex items-center justify-center bg-white dark:bg-gray-800 rounded-full">
+          <div className="w-9 h-9 flex items-center justify-center rounded-full">
             {icon}
           </div>
         </div>
