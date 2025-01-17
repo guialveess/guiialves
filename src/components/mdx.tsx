@@ -1,5 +1,6 @@
 import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote/rsc';
 import Link from 'next/link';
+import { HeadingWithIcon } from "@/components/custom/HeadingWithIcon";
 import Card from '@/components/Card';
 import { NextFileTree } from "@/components/NextFileTree"; 
 import ComparisonTable from "@/components/ComparisonTable";
@@ -79,7 +80,7 @@ export const components = {
   blockquote: (props: BlockquoteProps) => (
     <blockquote className="ml-[0.075em] border-l-3 border-gray-300 pl-4 text-gray-700 dark:text-black" {...props} />
   ),
-  Card, ComparisonTable, NextFileTree// Adicionando o Card como componente utilizável no MDX
+  Card, ComparisonTable, NextFileTree,HeadingWithIcon// Adicionando o Card como componente utilizável no MDX
 };
 
 export function CustomMDX(props: MDXRemoteProps) {
