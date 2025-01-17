@@ -1,5 +1,5 @@
 "use client";
-import {Link} from "next-view-transitions";
+import { Link } from "next-view-transitions";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
@@ -239,7 +239,7 @@ export default function HomePage() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false); // Desativa a tela de carregamento após 5 segundos
-    }, 7500);
+    }, 5000);
 
     return () => clearTimeout(timer); // Limpa o timer ao desmontar
   }, []);
@@ -248,228 +248,241 @@ export default function HomePage() {
     return (
       <div className="flex h-screen items-center justify-center">
         <WordRotate
-          className="text-3xl font-bold text-black dark:text-white translate-y-full animate-minor-spring duration-1000 transition-all ease-slow"
+          className="text-3xl font-bold text-black dark:text-white translate-y-full duration-700 animate-minor-spring ease-slow"
           words={[
             "Olá", // Português
             "Hello", // Inglês
             "Hola", // Espanhol
             "Bonjour", // Francês
-            "Hallo", // Alemão
+            "Hallo" // Alemão
           ]}
-          duration={1500} // Troca de palavras a cada 1 segundo
+          // Troca de palavras a cada 1 segundo
         />
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col min-h-screen scroll-smooth ">
-      <header className="z-[50] sticky top-0 w-full bg-background/95 border-b backdrop-blur-sm dark:bg-black/[0.6] border-border/40">
-        <div className="container h-14 flex items-center">
-          <Link
-            href="/"
-            className="flex justify-start items-center hover:opacity-85"
-          ></Link>
-          <nav className="ml-auto flex items-center gap-2">
-            <Button
-              variant="outline"
-              size="icon"
-              className="rounded-full w-8 h-8 bg-background"
-              asChild
-            >
-              <Link href="/projects">
-                <BackpackIcon className="h-[1.2rem] w-[1.2rem]" />
-              </Link>
-            </Button>
-            <ModeToggle />
-          </nav>
-        </div>
-      </header>
-
-      <TracingBeam className="">
-        <main className="min-h-[calc(100vh-57px-97px)] flex-1 mx-auto">
-          <Breadcrumb className="mt-6 ml-8">
-            <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbPage>Home</BreadcrumbPage>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <Link href="/projects">Projetos</Link>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <Link href="/blog">Blog</Link>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
-          <div className="container relative  pb-10">
-            <div className="fixed bottom-0 left-0 right-0 mb-6 py-6 z-10">
-              <Dock direction="bottom">
-                <DockIcon>
-                  <a
-                    href="https://github.com/guialveess"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Icons.gitHub className="size-6" />
-                  </a>
-                </DockIcon>
-                <DockIcon>
-                  <a
-                    href="https://www.linkedin.com/in/guiialves/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Icons.linkedin className="size-6" />
-                  </a>
-                </DockIcon>
-                <DockIcon>
-                  <a
-                    href="mailto:97guilherme.alves@gmail.com?subject=Olá%20Guilherme&body=Gostaria%20de%20entrar%20em%20contato!"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Icons.gmail className="size-6" />
-                  </a>
-                </DockIcon>
-              </Dock>
+    <AnimatePresence>
+      <motion.div
+        key="main-content"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 1, ease: "easeInOut" }}
+      >
+        <div className="flex flex-col min-h-screen scroll-smooth ">
+          <header className="z-[50] sticky top-0 w-full bg-background/95 border-b backdrop-blur-sm dark:bg-black/[0.6] border-border/40">
+            <div className="container h-14 flex items-center">
+              <Link
+                href="/"
+                className="flex justify-start items-center hover:opacity-85"
+              ></Link>
+              <nav className="ml-auto flex items-center gap-2">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="rounded-full w-8 h-8 bg-background"
+                  asChild
+                >
+                  <Link href="/projects">
+                    <BackpackIcon className="h-[1.2rem] w-[1.2rem]" />
+                  </Link>
+                </Button>
+                <ModeToggle />
+              </nav>
             </div>
-            <section className="mx-auto max-w-[980px] flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-6">
-              <div className="flex items-center gap-4">
-                <h1 className="text-xl font-bold md:text-xl lg:text-3xl lg:leading-[1.1]">
-                  Guilherme Alves
-                </h1>
-                <div className="relative flex items-center justify-center h-14 w-14 rounded-full overflow-visible group">
-                  {/* Wrapper Circular para a Imagem */}
-                  <div className="h-full w-full rounded-full overflow-hidden">
-                    <Image
-                      src="/avatar.jpg"
-                      alt="Avatar"
-                      width={64}
-                      height={64}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+          </header>
 
-                  {/* Nome com Animação de Hover */}
+          <TracingBeam className="">
+            <main className="min-h-[calc(100vh-57px-97px)] flex-1 mx-auto">
+              <Breadcrumb className="mt-6 ml-8">
+                <BreadcrumbList>
+                  <BreadcrumbItem>
+                    <BreadcrumbPage>Home</BreadcrumbPage>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator />
+                  <BreadcrumbItem>
+                    <Link href="/projects">Projetos</Link>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator />
+                  <BreadcrumbItem>
+                    <Link href="/blog">Blog</Link>
+                  </BreadcrumbItem>
+                </BreadcrumbList>
+              </Breadcrumb>
+              <div className="container relative  pb-10">
+                <div className="fixed bottom-0 left-0 right-0 mb-6 py-6 z-10">
+                  <Dock direction="bottom">
+                    <DockIcon>
+                      <a
+                        href="https://github.com/guialveess"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Icons.gitHub className="size-6" />
+                      </a>
+                    </DockIcon>
+                    <DockIcon>
+                      <a
+                        href="https://www.linkedin.com/in/guiialves/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Icons.linkedin className="size-6" />
+                      </a>
+                    </DockIcon>
+                    <DockIcon>
+                      <a
+                        href="mailto:97guilherme.alves@gmail.com?subject=Olá%20Guilherme&body=Gostaria%20de%20entrar%20em%20contato!"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Icons.gmail className="size-6" />
+                      </a>
+                    </DockIcon>
+                  </Dock>
                 </div>
-              </div>
-              <div className=" flex items-center gap-2">
-                <BadgeAnimatedBorder variant={"default"} className="mt-1">
-                  Dev Full Stack
-                  {/* <Badge className="dark:bg-blue-900 ml-2 text-white bg-blue-950  border-none">
+                <section className="mx-auto max-w-[980px] flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-6">
+                  <div className="flex items-center gap-4">
+                    <h1 className="text-xl font-bold md:text-xl lg:text-3xl lg:leading-[1.1]">
+                      Guilherme Alves
+                    </h1>
+                    <div className="relative flex items-center justify-center h-14 w-14 rounded-full overflow-visible group">
+                      {/* Wrapper Circular para a Imagem */}
+                      <div className="h-full w-full rounded-full overflow-hidden">
+                        <Image
+                          src="/avatar.jpg"
+                          alt="Avatar"
+                          width={64}
+                          height={64}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+
+                      {/* Nome com Animação de Hover */}
+                    </div>
+                  </div>
+                  <div className=" flex items-center gap-2">
+                    <BadgeAnimatedBorder variant={"default"} className="mt-1">
+                      Dev Full Stack
+                      {/* <Badge className="dark:bg-blue-900 ml-2 text-white bg-blue-950  border-none">
                   Recife - PE 📍
                 </Badge> */}
-                </BadgeAnimatedBorder>
-              </div>
-            </section>
+                    </BadgeAnimatedBorder>
+                  </div>
+                </section>
 
-            <div className="mx-auto max-w-[980px] flex-col gap-2 py-8 md:py-12 md:pb-8 lg:py-4 lg:pb-6 relative flex size-full items-center justify-center overflow-visible rounded-lg border bg-background p-4 md:shadow-xl">
-              <div className="space-y-4">
-                {/* Cabeçalho do Card */}
-                <div className="flex items-center justify-between">
-                  <h4 className="flex items-center gap-2 text-sm font-medium text-zinc-700 dark:text-zinc-300">
-                    <Target className="w-4 h-4" />
-                    Sobre mim
-                  </h4>
+                <div className="mx-auto max-w-[980px] flex-col gap-2 py-8 md:py-12 md:pb-8 lg:py-4 lg:pb-6 relative flex size-full items-center justify-center overflow-visible rounded-lg border bg-background p-4 md:shadow-xl">
+                  <div className="space-y-4">
+                    {/* Cabeçalho do Card */}
+                    <div className="flex items-center justify-between">
+                      <h4 className="flex items-center gap-2 text-sm font-medium text-zinc-700 dark:text-zinc-300">
+                        <Target className="w-4 h-4" />
+                        Sobre mim
+                      </h4>
+                    </div>
+
+                    {/* Texto de Apresentação */}
+                    <p className="text-base font-medium tracking-tighter text-zinc-700 dark:text-zinc-300">
+                      Desenvolvedor{" "}
+                      <span
+                        className="underline cursor-pointer relative custom-underline"
+                        onMouseEnter={() => setShowDynamic(true)} // Desktop: Aparece ao passar o mouse
+                        onMouseLeave={() => setShowDynamic(false)} // Desktop: Desaparece ao tirar o mouse
+                        onClick={() => setShowDynamic((prev) => !prev)} // Mobile: Alterna ao clicar
+                      >
+                        full stack
+                        <AnimatePresence>
+                          {showDynamic && (
+                            <motion.div
+                              initial={{ opacity: 0, y: 20 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              exit={{ opacity: 0, y: 20 }}
+                              transition={{
+                                duration: 0.8, // Aumenta o tempo da animação
+                                ease: [0.25, 0.8, 0.5, 1] // Easing suave para entrada/saída
+                              }}
+                              className="absolute top-full left-0 mt-4 z-50 w-64 p-4 rounded-md"
+                            >
+                              <DynamicIslandDemo />
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </span>
+                      , meu objetivo é criar soluções inovadoras que impactem
+                      positivamente a vida das pessoas, ao mesmo tempo em que
+                      trabalho no protótipo e desenvolvimento dos meus próprios
+                      SaaS 👋
+                    </p>
+
+                    {/* Lista de Objetivos Diários */}
+                  </div>
                 </div>
 
-                {/* Texto de Apresentação */}
-                <p className="text-base font-medium tracking-tighter text-zinc-700 dark:text-zinc-300">
-                  Desenvolvedor{" "}
-                  <span
-                    className="underline cursor-pointer relative custom-underline"
-                    onMouseEnter={() => setShowDynamic(true)} // Desktop: Aparece ao passar o mouse
-                    onMouseLeave={() => setShowDynamic(false)} // Desktop: Desaparece ao tirar o mouse
-                    onClick={() => setShowDynamic((prev) => !prev)} // Mobile: Alterna ao clicar
+                <section className="mx-auto max-w-[980px] flex-col gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-6 relative">
+                  <BentoGrid className="lg:grid-rows-3">
+                    {features.map((feature) => (
+                      <BentoCard key={feature.name} {...feature} />
+                    ))}
+                  </BentoGrid>
+                  <OtherSkillsSection />
+                </section>
+
+                <div className="mx-auto max-w-[980px] flex flex-col items-center justify-center gap-2 py-8 md:py-4 md:pb-8 lg:py-6 lg:pb-6">
+                  <Badge
+                    variant={"default"}
+                    className="mb-6 text-xl font-bold leading-tight tracking-tighter md:text-3xl lg:text-4xl lg:leading-[1.1] text-center"
                   >
-                    full stack
-                    <AnimatePresence>
-                      {showDynamic && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: 20 }}
-                          transition={{
-                            duration: 0.8, // Aumenta o tempo da animação
-                            ease: [0.25, 0.8, 0.5, 1] // Easing suave para entrada/saída
-                          }}
-                          className="absolute top-full left-0 mt-4 z-50 w-64 p-4 rounded-md"
-                        >
-                          <DynamicIslandDemo />
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </span>
-                  , meu objetivo é criar soluções inovadoras que impactem
-                  positivamente a vida das pessoas, ao mesmo tempo em que
-                  trabalho no protótipo e desenvolvimento dos meus próprios SaaS
-                  👋
-                </p>
-
-                {/* Lista de Objetivos Diários */}
-              </div>
-            </div>
-
-            <section className="mx-auto max-w-[980px] flex-col gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-6 relative">
-              <BentoGrid className="lg:grid-rows-3">
-                {features.map((feature) => (
-                  <BentoCard key={feature.name} {...feature} />
-                ))}
-              </BentoGrid>
-              <OtherSkillsSection />
-            </section>
-
-            <div className="mx-auto max-w-[980px] flex flex-col items-center justify-center gap-2 py-8 md:py-4 md:pb-8 lg:py-6 lg:pb-6">
-              <Badge
-                variant={"default"}
-                className="mb-6 text-xl font-bold leading-tight tracking-tighter md:text-3xl lg:text-4xl lg:leading-[1.1] text-center"
-              >
-                Hackathons
-              </Badge>
-            </div>
-            <section id="hackathons" className="">
-              <div className="space-y-12 w-full py-12">
-                <div className="flex flex-col items-center justify-center space-y-4 text-center">
-                  <div className="space-y-2">
-                    <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                      Adoro transformar ideias em{" "}
-                      <FlipWords
-                        words={["realidade", "fato", "veracidade", "realidade"]}
-                      />
-                      😊
-                    </h2>
-                  </div>
+                    Hackathons
+                  </Badge>
                 </div>
+                <section id="hackathons" className="">
+                  <div className="space-y-12 w-full py-12">
+                    <div className="flex flex-col items-center justify-center space-y-4 text-center">
+                      <div className="space-y-2">
+                        <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                          Adoro transformar ideias em{" "}
+                          <FlipWords
+                            words={[
+                              "realidade",
+                              "fato",
+                              "veracidade",
+                              "realidade"
+                            ]}
+                          />
+                          😊
+                        </h2>
+                      </div>
+                    </div>
 
-                {/* Hackathon cards */}
-                <ul className="mb-4 ml-4 divide-y divide-dashed border-l">
-                  <div className="mb-4">
-                    <HackathonCard
-                      title="Nasa Space Apps Hackathon"
-                      description={
-                        <>
-                          <blockquote className="border-l-4 pl-4 italic text-md font-semibold text-muted-foreground">
-                            &quot;Foi uma experiência incrível participar de um
-                            hackathon tão renomado globalmente, com mais de 60
-                            equipes competindo.&quot;
-                          </blockquote>
-                          <p className="mt-2">
-                            Ficar em{" "}
-                            <span className="font-black"> 7º lugar </span>
-                            foi uma conquista memorável!
-                          </p>
-                        </>
-                      }
-                      location="Recife - PE"
-                      dates="04/10 - 06/10"
-                      image="nasa-spaceapps"
-                      certificateFile="/certificates/nasa.pdf" // Caminho para o arquivo na pasta pública
-                    />
-                  </div>
+                    {/* Hackathon cards */}
+                    <ul className="mb-4 ml-4 divide-y divide-dashed border-l">
+                      <div className="mb-4">
+                        <HackathonCard
+                          title="Nasa Space Apps Hackathon"
+                          description={
+                            <>
+                              <blockquote className="border-l-4 pl-4 italic text-md font-semibold text-muted-foreground">
+                                &quot;Foi uma experiência incrível participar de
+                                um hackathon tão renomado globalmente, com mais
+                                de 60 equipes competindo.&quot;
+                              </blockquote>
+                              <p className="mt-2">
+                                Ficar em{" "}
+                                <span className="font-black"> 7º lugar </span>
+                                foi uma conquista memorável!
+                              </p>
+                            </>
+                          }
+                          location="Recife - PE"
+                          dates="04/10 - 06/10"
+                          image="nasa-spaceapps"
+                          certificateFile="/certificates/nasa.pdf" // Caminho para o arquivo na pasta pública
+                        />
+                      </div>
 
-                  {/* <div className="mb-4">
+                      {/* <div className="mb-4">
                   <HackathonCard
                     title="Hackathon Example 2"
                     description="Description of Hackathon 2"
@@ -478,29 +491,31 @@ export default function HomePage() {
                     image="nasa-spaceapps-"
                   />
                 </div> */}
-                  {/* Adicione mais itens de hackathons conforme necessário */}
-                </ul>
+                      {/* Adicione mais itens de hackathons conforme necessário */}
+                    </ul>
+                  </div>
+                </section>
               </div>
-            </section>
-          </div>
 
-          <footer className="py-2 md:py-0 mb-14 border-t border-border/40">
-            <div className="container flex items-center justify-center gap-4 md:h-24 md:flex-row">
-              <p className="text-balance  mb-14  text-center text-sm leading-loose text-muted-foreground">
-                feito por{" "}
-                <Link
-                  href="https://api.whatsapp.com/send/?phone=5581981770644&text=Olá%2C+estou+interessado+em+desenvolver+um+site+ou+sistema.+Gostaria+de+discutir+as+opções+disponíveis+com+você.%F0%9F%91%8B&type=phone_number&app_absent=0"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-medium underline underline-offset-4"
-                >
-                  @guiialves
-                </Link>
-              </p>
-            </div>
-          </footer>
-        </main>
-      </TracingBeam>
-    </div>
+              <footer className="py-2 md:py-0 mb-14 border-t border-border/40">
+                <div className="container flex items-center justify-center gap-4 md:h-24 md:flex-row">
+                  <p className="text-balance  mb-14  text-center text-sm leading-loose text-muted-foreground">
+                    feito por{" "}
+                    <Link
+                      href="https://api.whatsapp.com/send/?phone=5581981770644&text=Olá%2C+estou+interessado+em+desenvolver+um+site+ou+sistema.+Gostaria+de+discutir+as+opções+disponíveis+com+você.%F0%9F%91%8B&type=phone_number&app_absent=0"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-medium underline underline-offset-4"
+                    >
+                      @guiialves
+                    </Link>
+                  </p>
+                </div>
+              </footer>
+            </main>
+          </TracingBeam>
+        </div>
+      </motion.div>
+    </AnimatePresence>
   );
 }
