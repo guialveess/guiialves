@@ -25,22 +25,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { HackathonCard } from "@/components/hackathon-card";
 import { TracingBeam } from "@/components/ui/tracing-beam";
 import { DynamicIslandDemo } from "@/components/custom/DymanicAction";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbSeparator,
-  BreadcrumbList,
-  BreadcrumbLink,
-  BreadcrumbPage
-} from "@/components/ui/breadcrumb";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle
-} from "@/components/ui/card";
 import Nextjs from "@/components/NextjsIcon";
 import { Hexagon } from "lucide-react";
 import {
@@ -229,38 +213,11 @@ import {
 } from "@radix-ui/react-icons";
 import { cn } from "@/lib/utils";
 import { BadgeAnimatedBorder } from "@/components/custom/BadgeAnimatedBorder";
+import Header from "@/components/header";
 
 export default function HomePage() {
   useLenis();
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string>("");
   const [showDynamic, setShowDynamic] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false); // Desativa a tela de carregamento após 5 segundos
-    }, 5000);
-
-    return () => clearTimeout(timer); // Limpa o timer ao desmontar
-  }, []);
-
-  if (isLoading) {
-    return (
-      <div className="flex h-screen items-center justify-center">
-        <WordRotate
-          className="text-3xl font-bold text-black dark:text-white translate-y-full duration-700 animate-minor-spring ease-slow"
-          words={[
-            "Olá", // Português
-            "Hello", // Inglês
-            "Hola", // Espanhol
-            "Bonjour", // Francês
-            "Hallo" // Alemão
-          ]}
-          // Troca de palavras a cada 1 segundo
-        />
-      </div>
-    );
-  }
 
   return (
     <AnimatePresence>
@@ -272,45 +229,10 @@ export default function HomePage() {
         transition={{ duration: 1, ease: "easeInOut" }}
       >
         <div className="flex flex-col min-h-screen scroll-smooth ">
-          <header className="z-[50] sticky top-0 w-full bg-background/95 border-b backdrop-blur-sm dark:bg-black/[0.6] border-border/40">
-            <div className="container h-14 flex items-center">
-              <Link
-                href="/"
-                className="flex justify-start items-center hover:opacity-85"
-              ></Link>
-              <nav className="ml-auto flex items-center gap-2">
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="rounded-full w-8 h-8 bg-background"
-                  asChild
-                >
-                  <Link href="/projects">
-                    <BackpackIcon className="h-[1.2rem] w-[1.2rem]" />
-                  </Link>
-                </Button>
-                <ModeToggle />
-              </nav>
-            </div>
-          </header>
+          <Header />
 
           <TracingBeam className="">
             <main className="min-h-[calc(100vh-57px-97px)] flex-1 mx-auto">
-              <Breadcrumb className="mt-6 ml-8">
-                <BreadcrumbList>
-                  <BreadcrumbItem>
-                    <BreadcrumbPage>Home</BreadcrumbPage>
-                  </BreadcrumbItem>
-                  <BreadcrumbSeparator />
-                  <BreadcrumbItem>
-                    <Link href="/projects">Projetos</Link>
-                  </BreadcrumbItem>
-                  <BreadcrumbSeparator />
-                  <BreadcrumbItem>
-                    <Link href="/blog">Blog</Link>
-                  </BreadcrumbItem>
-                </BreadcrumbList>
-              </Breadcrumb>
               <div className="container relative  pb-10">
                 <div className="fixed bottom-0 left-0 right-0 mb-6 py-6 z-10">
                   <Dock direction="bottom">
@@ -350,7 +272,7 @@ export default function HomePage() {
                     </h1>
                     <div className="relative flex items-center justify-center h-14 w-14 rounded-full overflow-visible group">
                       {/* Wrapper Circular para a Imagem */}
-                      <div className="h-full w-full rounded-full overflow-hidden">
+                      {/* <div className="h-full w-full rounded-full overflow-hidden">
                         <Image
                           src="/avatar.jpg"
                           alt="Avatar"
@@ -358,13 +280,13 @@ export default function HomePage() {
                           height={64}
                           className="w-full h-full object-cover"
                         />
-                      </div>
+                      </div> */}
 
                       {/* Nome com Animação de Hover */}
                     </div>
                   </div>
                   <div className=" flex items-center gap-2">
-                    <BadgeAnimatedBorder variant={"default"} className="mt-1">
+                    <BadgeAnimatedBorder variant={"outline"} className="mt-1">
                       Dev Full Stack
                       {/* <Badge className="dark:bg-blue-900 ml-2 text-white bg-blue-950  border-none">
                   Recife - PE 📍
@@ -420,8 +342,8 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <section className="mx-auto max-w-[980px] flex-col gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-6 relative">
-                  <BentoGrid className="lg:grid-rows-3">
+                <section className="mx-auto max-w-[980px] flex-col gap-4 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-6 relative">
+                  <BentoGrid className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 lg:gap-6">
                     {features.map((feature) => (
                       <BentoCard key={feature.name} {...feature} />
                     ))}
@@ -443,14 +365,7 @@ export default function HomePage() {
                       <div className="space-y-2">
                         <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
                           Adoro transformar ideias em{" "}
-                          <FlipWords
-                            words={[
-                              "realidade",
-                              "fato",
-                              "veracidade",
-                              "realidade"
-                            ]}
-                          />
+                          <FlipWords words={["fato", "código"]} />
                           😊
                         </h2>
                       </div>
