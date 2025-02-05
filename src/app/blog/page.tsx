@@ -44,7 +44,7 @@ export default function BlogPage() {
     <LenisWrapper>
       <div className="flex flex-col min-h-screen">
         {/* Header */}
-        <header className="z-[50] sticky top-0 w-full bg-background/95 border-b backdrop-blur-sm dark:bg-black/[0.6] border-border/40">
+        <header className="z-[50] sticky top-0 w-full bg-background/95 border-b backdrop-blur-sm dark:bg-black/[0.6] border-border/40 px-4">
           <div className="container h-14 flex items-center">
             <nav className="ml-auto flex items-center gap-2">
               <Button

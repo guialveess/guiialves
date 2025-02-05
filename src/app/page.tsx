@@ -267,7 +267,7 @@ export default function HomePage() {
                 </div>
                 <section className="mx-auto max-w-[980px] flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-6">
                   <div className="flex items-center gap-4">
-                    <h1 className="text-xl font-bold md:text-xl lg:text-3xl lg:leading-[1.1]">
+                    <h1 className="text-3xl font-bold md:text-xl lg:text-4xl lg:leading-[1.1]">
                       Guilherme Alves
                     </h1>
                     <div className="relative flex items-center justify-center h-14 w-14 rounded-full overflow-visible group">

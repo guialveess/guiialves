@@ -13,7 +13,9 @@ import {
 
 const Header = () => {
   return (
-    <header className="z-[50] relative top-7 w-full sm:max-w-4xl lg:max-w-5xl border bg-background/95 backdrop-blur-sm dark:bg-black/[0.8] border-border/40 mx-auto flex h-[50px] items-center justify-between rounded-2xl px-4 sm:px-6 lg:px-8 shadow-sm saturate-100 transition-colors">
+    <header className="z-[50] relative top-7 w-full max-w-[90%] sm:max-w-4xl lg:max-w-5xl border bg-background/95 backdrop-blur-sm dark:bg-black/[0.8] border-border/40 mx-auto flex h-[50px] items-center justify-between rounded-2xl px-4 sm:px-6 lg:px-8 shadow-sm saturate-100 transition-colors" >
+
+
       <div className="container h-14 flex items-center">
         <Link
           href="/"
