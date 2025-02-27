@@ -2,19 +2,7 @@ import LenisWrapper from "@/components/LenisWrapper";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { ModeToggle } from "@/components/mode-toggle";
 import { Link } from "next-view-transitions";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbSeparator,
-  BreadcrumbList,
-  BreadcrumbPage,
-} from "@/components/ui/breadcrumb";
-import { BackpackIcon } from "@radix-ui/react-icons";
-import { Button } from "@/components/ui/button";
-import DotPattern from "@/components/custom/DotPattern";
-import { cn } from "@/lib/utils";
 
 // Diretório dos posts
 const postsDirectory = path.join(process.cwd(), "src/app/blog/posts");
@@ -44,46 +32,13 @@ export default function BlogPage() {
     <LenisWrapper>
       <div className="flex flex-col min-h-screen">
         {/* Header */}
-        <header className="z-[50] sticky top-0 w-full bg-background/95 border-b backdrop-blur-sm dark:bg-black/[0.6] border-border/40 px-4">
-          <div className="container h-14 flex items-center">
-            <nav className="ml-auto flex items-center gap-2">
-              <Button
-                variant="outline"
-                size="icon"
-                className="rounded-full w-8 h-8 bg-background"
-                asChild
-              >
-                <Link href="/">
-                  <BackpackIcon className="h-[1.2rem] w-[1.2rem]" />
-                </Link>
-              </Button>
-              <ModeToggle />
-            </nav>
-          </div>
-        </header>
-
+       
         {/* Main Content */}
-        <main className="min-h-[calc(100vh-57px-97px)] flex">
+        <main className="flex-1 mt-16"> {/* Adiciona margem superior para ajustar o espaço do header */}
           <div className="container mx-auto max-w-3xl px-4">
-            {/* Breadcrumb */}
-            <Breadcrumb className="mt-6 mb-4">
-              <BreadcrumbList>
-                <BreadcrumbItem>
-                  <Link href="/">Home</Link>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator />
-                <BreadcrumbItem>
-                  <Link href="/projects">Projetos</Link>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator />
-                <BreadcrumbItem>
-                  <BreadcrumbPage>Blog</BreadcrumbPage>
-                </BreadcrumbItem>
-              </BreadcrumbList>
-            </Breadcrumb>
-
+           
             {/* Título do Blog */}
-            <h1 className="text-2xl font-bold mb-6">Blog</h1>
+            <h1 className="text-2xl font-bold mb-8">Blog</h1> {/* Ajuste da margem abaixo do título */}
 
             {/* Lista de Posts */}
             <ul className="space-y-4">

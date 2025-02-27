@@ -19,14 +19,8 @@ export default async function PostPage({ params }: { params: { slug: string } })
       />
 
       {/* Header */}
-      <header className="z-[50] sticky top-0 w-full bg-background/50 border-b backdrop-blur-sm dark:bg-black/[0.6] border-border/40">
-        <div className="container h-14 flex items-center justify-between px-4">
-          <Link href="/" className="text-sm text-gray-500 hover:underline">
-            Home
-          </Link>
-          <ModeToggle />
-        </div>
-      </header>
+     
+       
 
       {/* Main Content */}
       <main className="container mx-auto max-w-3xl px-4 mt-16 prose">

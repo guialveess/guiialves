@@ -1,27 +1,12 @@
-"use client";
+"use client"
 import { Link } from "next-view-transitions";
 import { AnimatePresence, motion } from "framer-motion";
-import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import GridPattern from "@/components/ui/grid-pattern";
-import { ModeToggle } from "@/components/mode-toggle";
-import Image from "next/image";
+import { useState } from "react";
 import { useLenis } from "@/hooks/useLenis";
-import { WordRotate } from "@/components/custom/WordRotate";
-import { BackpackIcon } from "@radix-ui/react-icons";
 import { Badge } from "@/components/ui/badge";
-import {
-  Activity,
-  ArrowUpRight,
-  Plus,
-  Target,
-  CheckCircle2
-} from "lucide-react";
-import { Cover } from "@/components/ui/cover";
-import Card2 from "@/components/myCard";
+import { Target } from "lucide-react";
 import { FlipWords } from "@/components/ui/flip-words";
 import { Dock, DockIcon } from "@/components/ui/dock";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { HackathonCard } from "@/components/hackathon-card";
 import { TracingBeam } from "@/components/ui/tracing-beam";
 import { DynamicIslandDemo } from "@/components/custom/DymanicAction";
@@ -30,7 +15,6 @@ import { Hexagon } from "lucide-react";
 import {
   ApiIcon,
   FigmaIcon,
-  NextIcon,
   Typescript01Icon,
   WinkingIcon
 } from "hugeicons-react";
@@ -39,7 +23,6 @@ import {
   BentoGrid,
   OtherSkillsSection
 } from "@/components/ui/bento-grid";
-import Logo from "@/components/Logo";
 
 export type IconProps = React.HTMLAttributes<SVGElement>;
 
@@ -204,16 +187,7 @@ const features = [
   }
 ];
 
-import {
-  BellIcon,
-  CalendarIcon,
-  FileTextIcon,
-  GlobeIcon,
-  InputIcon
-} from "@radix-ui/react-icons";
-import { cn } from "@/lib/utils";
 import { BadgeAnimatedBorder } from "@/components/custom/BadgeAnimatedBorder";
-import Header from "@/components/header";
 
 export default function HomePage() {
   useLenis();
@@ -228,9 +202,7 @@ export default function HomePage() {
         exit={{ opacity: 0 }}
         transition={{ duration: 1, ease: "easeInOut" }}
       >
-        <div className="flex flex-col min-h-screen scroll-smooth ">
-          <Header />
-
+       
           <TracingBeam className="">
             <main className="min-h-[calc(100vh-57px-97px)] flex-1 mx-auto">
               <div className="container relative  pb-10">
@@ -348,6 +320,7 @@ export default function HomePage() {
                       <BentoCard key={feature.name} {...feature} />
                     ))}
                   </BentoGrid>
+
                   <OtherSkillsSection />
                 </section>
 
@@ -429,7 +402,7 @@ export default function HomePage() {
               </footer>
             </main>
           </TracingBeam>
-        </div>
+        
       </motion.div>
     </AnimatePresence>
   );

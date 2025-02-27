@@ -1,27 +1,9 @@
 "use client";
 import { Link } from "next-view-transitions";
-import { Button } from "@/components/ui/button";
-import { BackpackIcon } from "@radix-ui/react-icons";
 import { useLenis } from "@/hooks/useLenis";
-import { ModeToggle } from "@/components/mode-toggle";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbSeparator,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbLink
-} from "@/components/ui/breadcrumb";
 import { TracingBeam } from "@/components/ui/tracing-beam";
-import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
-import {
-  Drawer,
-  DrawerTrigger,
-  DrawerContent,
-  DrawerClose
-} from "@/components/ui/drawer";
 import { AnimatePresence, motion } from "framer-motion";
 
 export default function ProjectsPage() {
@@ -67,47 +49,13 @@ export default function ProjectsPage() {
         exit={{ opacity: 0 }}
         transition={{ duration: 1, ease: "easeInOut" }}
       >
-        <div className="flex flex-col min-h-screen scroll-smooth">
-          {/* Header */}
-          <header className="z-[50] sticky top-0 w-full bg-background/95 border-b backdrop-blur-sm dark:bg-black/[0.6] border-border/40">
-            <div className="container h-14 flex items-center">
-              <nav className="ml-auto flex items-center gap-2">
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="rounded-full w-8 h-8 bg-background"
-                  asChild
-                >
-                  <Link href="/">
-                    <BackpackIcon className="h-[1.2rem] w-[1.2rem]" />
-                  </Link>
-                </Button>
-                <ModeToggle />
-              </nav>
-            </div>
-          </header>
+        {/* Header */}
+        
 
           {/* Main Content */}
           <TracingBeam>
             <main className="min-h-[calc(100vh-57px-97px)] flex-1 mx-auto">
               {/* Breadcrumb */}
-              <div className="container relative pb-10">
-                <Breadcrumb className="mt-6 mr-7">
-                  <BreadcrumbList>
-                    <BreadcrumbItem>
-                      <Link href="/">Home</Link>
-                    </BreadcrumbItem>
-                    <BreadcrumbSeparator />
-                    <BreadcrumbItem>
-                      <BreadcrumbPage>Projetos</BreadcrumbPage>
-                    </BreadcrumbItem>
-                    <BreadcrumbSeparator />
-                    <BreadcrumbItem>
-                      <Link href="/blog">Blog</Link>
-                    </BreadcrumbItem>
-                  </BreadcrumbList>
-                </Breadcrumb>
-              </div>
 
               {/* Projects Section */}
               <div className="container relative pb-10">
@@ -168,7 +116,7 @@ export default function ProjectsPage() {
               </footer>
             </main>
           </TracingBeam>
-        </div>
+        
       </motion.div>
     </AnimatePresence>
   );
